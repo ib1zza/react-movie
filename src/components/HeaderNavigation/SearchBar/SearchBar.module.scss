@@ -1,0 +1,25 @@
+@import "../../../globals/vars";
+
+.searchBarContainer {
+  padding: 15px 35px;
+  display: flex;
+  align-items: center;
+  width: 60%;
+  border-radius: 30px;
+  background-color: $SearchBarBgCol;
+  color: $SearchBarTextCol;
+  overflow: hidden;
+  font-size: 25px ;
+
+  input {
+    background-color: transparent;
+    width: 100%;
+    border: none;
+    color: $SearchBarTextCol;
+    font-weight: bold;
+  }
+
+  .icon {
+    margin-right: 20px;
+  }
+}
