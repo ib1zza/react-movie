@@ -1,0 +1,10 @@
+@import "src/globals/vars";
+
+
+.container {
+  width: 100%;
+  max-width: 900px;
+  overflow: hidden;
+
+  color: $mainTextColLight;
+}

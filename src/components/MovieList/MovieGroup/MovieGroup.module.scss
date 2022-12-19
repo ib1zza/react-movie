@@ -1,0 +1,26 @@
+@import "src/globals/vars";
+
+.container {
+  width: 100%;
+}
+
+
+.heading {
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 30px;
+
+
+  h2 {
+    font-weight: 600;
+    font-size: 25px;
+  }
+
+  span {
+    font-weight: 600;
+    font-size: 15px;
+    color: $mainTextColDark;
+  }
+}

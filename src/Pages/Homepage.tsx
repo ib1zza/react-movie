@@ -1,10 +1,12 @@
 import React from "react";
-import LeftNavigation from "../components/LeftNavigation/LeftNavigation";
-import HeaderNavigation from "../components/HeaderNavigation/HeaderNavigation";
+import MainBanner from "../components/MainBanner/MainBanner";
+import MovieList from "../components/MovieList/MovieList";
 
 const Homepage = () => {
   return (
     <div>
+      <MainBanner />
+      <MovieList />
       <h1>lakjflkasjf</h1>
     </div>
   );
