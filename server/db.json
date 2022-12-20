@@ -1,0 +1,20 @@
+{
+  "filmdata": [
+    {
+      "id": 1,
+      "title": "Top Gun: Maverick",
+      "dateOfCreation": "01.01.2022",
+      "duration": 130,
+      "description": "After thirty years, Maverick is still pushing the envelope as a top naval aviator,\nbut must confront ghosts of his past when he leads TOP GUN's elite graduates\non a mission that demands the ultimate sacrifice from those chosen to fly it.",
+      "director": " Joseph Kosinski",
+      "writers": " Jim Cash, Jack Epps Jr,  Peter Craig",
+      "actors": "Tom Cruise, Jennifer Connelly, Miles Teller",
+      "rating": {
+        "rate": 8.5,
+        "count": 944
+      },
+      "genre": ["action", "drama"],
+      "cover": ""
+    }
+  ]
+}

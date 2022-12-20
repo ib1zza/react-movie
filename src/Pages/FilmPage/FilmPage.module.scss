@@ -1,0 +1,113 @@
+@import "src/globals/vars";
+
+.container {
+  width: 100%;
+  color: $mainTextColLight;
+  display: flex;
+  justify-content: space-between;
+
+
+
+  .description {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    &__header {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 25px;
+
+      .mainInfo {
+
+        font-weight: 500;
+        font-size: 23px;
+      }
+
+      .genres {
+
+
+        .genre {
+          font-size: 15px;
+          color: rgba($mainTextColLight, 80%);
+          border: 1px solid rgba($mainTextColLight, 30%);
+
+          &:not(:last-child) {
+            margin-right: 10px;
+          }
+
+          border-radius: 15px;
+          padding: 5px 15px;
+        }
+      }
+    }
+
+    &__text {
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 30px;
+      margin-bottom: 20px;
+    }
+
+    &__personalities {
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 30px;
+      margin-bottom: 20px;
+
+      .section {
+        padding: 15px 0;
+        border-bottom: 1px solid rgba($mainTextColLight, 25%);
+        &:first-child {
+          border-top: 1px solid rgba($mainTextColLight, 25%);
+        }
+
+        span {
+          color: $mainTextColAccent;
+        }
+      }
+    }
+  }
+
+  .aside {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    &__header {
+      display: flex;
+      justify-content: flex-end;
+      line-height: 1;
+      .icons {
+        font-size: 30px;
+        margin-right: 20px;
+        color: rgba($mainTextColLight, 25%);
+
+        &>*:not(:last-child) {
+          margin-right: 20px;
+        }
+      }
+
+      .reviews {
+        display: flex;
+        align-items: center;
+        .star {
+          color: #ddb114;
+          font-size: 25px;
+          margin-right: 10px;
+        }
+
+        .rate {
+          font-size: 25px;
+          margin-right: 5px;
+        }
+
+        .count {
+          font-size: 20px;
+          color: $mainTextColDark;
+        }
+      }
+    }
+  }
+}
