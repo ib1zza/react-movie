@@ -14,7 +14,145 @@
         "count": 944
       },
       "genre": ["action", "drama"],
-      "cover": ""
+      "cover": "https://m.media-amazon.com/images/M/MV5BZWYzOGEwNTgtNWU3NS00ZTQ0LWJkODUtMmVhMjIwMjA1ZmQwXkEyXkFqcGdeQXVyMjkwOTAyMDU@._V1_.jpg"
     }
+    ,
+    {
+      "id": 2,
+      "title": "Nope",
+      "dateOfCreation": "01.01.2022",
+      "duration": 130,
+      "description": "After thirty years, Maverick is still pushing the envelope as a top naval aviator,\nbut must confront ghosts of his past when he leads TOP GUN's elite graduates\non a mission that demands the ultimate sacrifice from those chosen to fly it.",
+      "director": " Joseph Kosinski",
+      "writers": " Jim Cash, Jack Epps Jr,  Peter Craig",
+      "actors": "Tom Cruise, Jennifer Connelly, Miles Teller",
+      "rating": {
+        "rate": 7.5,
+        "count": 944
+      },
+      "genre": ["action", "drama"],
+      "cover": "https://avatars.mds.yandex.net/get-kinopoisk-image/4303601/c647716a-122d-4fba-9c60-9690e45939c0/600x900"
+    },
+    {
+      "id": 3,
+      "title": "Death on the Nile",
+      "dateOfCreation": "01.01.2022",
+      "duration": 130,
+      "description": "This whodunit sequel to 2017's Murder on the Orient Express earned 20th Century Studios their No. 1 hit of 2022, which earned $137 million worldwide. Meanwhile, director and star Kenneth Branagh kicked off the great mustache trend of 2022.",
+      "director": " Joseph Kosinski",
+      "writers": " Jim Cash, Jack Epps Jr,  Peter Craig",
+      "actors": "Tom Cruise, Jennifer Connelly, Miles Teller",
+      "rating": {
+        "rate": 9.5,
+        "count": 944
+      },
+      "genre": ["action", "drama"],
+      "cover": "https://m.media-amazon.com/images/M/MV5BNjI4ZTQ1OTYtNTI0Yi00M2EyLThiNjMtMzk1MmZlOWMyMDQwXkEyXkFqcGdeQXVyMTEyMjM2NDc2._V1_.jpg"
+    },
+    {
+      "id": 4,
+      "title": "The Gray Man",
+      "dateOfCreation": "01.01.2022",
+      "duration": 130,
+      "description": "Netflix nabbed the Russo brothers’ big-budget, high-octane action thriller for a streaming debut in summer 2022. The film peaked at No. 1 on MOVIEmeter soon after, thanks to the star power of Ryan Gosling, Chris Evans, Ana de Armas, and Dhanush.",  "director": " Joseph Kosinski",
+      "writers": " Jim Cash, Jack Epps Jr,  Peter Craig",
+      "actors": "Tom Cruise, Jennifer Connelly, Miles Teller",
+      "rating": {
+        "rate": 6.5,
+        "count": 944
+      },
+      "genre": ["action", "drama"],
+      "cover": "https://upload.wikimedia.org/wikipedia/en/5/59/The_Gray_Man_poster.png"
+    },
+    {
+      "id": 5,
+      "title": "The Northman",
+      "dateOfCreation": "01.01.2022",
+      "duration": 130,
+      "description": "Director Robert Eggers expanded his global fanbase by casting Alexander Skarsgård as a Viking prince on a murderous quest for revenge in The Northman. Next, the director will bring his original vision to his take on Nosferatu.", "director": " Joseph Kosinski",
+      "writers": " Jim Cash, Jack Epps Jr,  Peter Craig",
+      "actors": "Tom Cruise, Jennifer Connelly, Miles Teller",
+      "rating": {
+        "rate": 4.5,
+        "count": 944
+      },
+      "genre": ["action", "drama"],
+      "cover": "https://m.media-amazon.com/images/M/MV5BMzVlMmY2NTctODgwOC00NDMzLWEzMWYtM2RiYmIyNTNhMTI0XkEyXkFqcGdeQXVyNTAzNzgwNTg@._V1_.jpg"
+    },
+    {
+      "id": 6,
+      "title": "X",
+      "dateOfCreation": "01.01.2022",
+      "duration": 130,
+      "description": "Ti West’s microbudget slasher X made waves at the box office, raking in $14.8 million worldwide. With a surprise prequel release just six months later, and a third film in the works, X may have revived the grand tradition of horror franchises.", "director": " Joseph Kosinski",
+      "writers": " Jim Cash, Jack Epps Jr,  Peter Craig",
+      "actors": "Tom Cruise, Jennifer Connelly, Miles Teller",
+      "rating": {
+        "rate": 8.7,
+        "count": 944
+      },
+      "genre": ["action", "drama"],
+      "cover": "https://m.media-amazon.com/images/M/MV5BMTJiMmE5YWItOWZjYS00YTg0LWE0MTYtMzg2ZTY4YjNkNDEzXkEyXkFqcGdeQXVyMTAzMDg4NzU0._V1_.jpg"
+    },
+    {
+      "id": 7,
+      "title": "Black Panther: Wakanda Forever",
+      "dateOfCreation": "01.01.2022",
+      "duration": 130,
+      "description":  "Grossing $331 million worldwide, the follow-up to Black Panther landed the second-largest opening weekend of 2022. The sequel — which paid tribute to Chadwick Boseman and his heroic character, T'Challa — served as the closing chapter to Phase Four of the Marvel Cinematic Universe.","director": " Joseph Kosinski",
+      "writers": " Jim Cash, Jack Epps Jr,  Peter Craig",
+      "actors": "Tom Cruise, Jennifer Connelly, Miles Teller",
+      "rating": {
+        "rate": 9.5,
+        "count": 944
+      },
+      "genre": ["action", "drama"],
+      "cover": "https://m.media-amazon.com/images/M/MV5BNTM4NjIxNmEtYWE5NS00NDczLTkyNWQtYThhNmQyZGQzMjM0XkEyXkFqcGdeQXVyODk4OTc3MTY@._V1_FMjpg_UX1000_.jpg"
+    },
+    {
+      "id": 8,
+      "title": "Doctor Strange in the Multiverse of Madness",
+      "dateOfCreation": "01.01.2022",
+      "duration": 130,
+      "description":"The Sorcerer Supreme conjured Marvel’s best global box office tally of 2022 (though Wakanda Forever is in pursuit). The superhero sequel was a triumphant return for Sam Raimi as well, as the director scored his highest-grossing movie to date.","director": " Joseph Kosinski",
+      "writers": " Jim Cash, Jack Epps Jr,  Peter Craig",
+      "actors": "Tom Cruise, Jennifer Connelly, Miles Teller",
+      "rating": {
+        "rate": 6.5,
+        "count": 944
+      },
+      "genre": ["action", "drama"],
+      "cover": "https://m.media-amazon.com/images/M/MV5BNWM0ZGJlMzMtZmYwMi00NzI3LTgzMzMtNjMzNjliNDRmZmFlXkEyXkFqcGdeQXVyMTM1MTE1NDMx._V1_.jpg"
+    },
+    {
+      "id": 9,
+      "title": "Thor: Love and Thunder",
+      "dateOfCreation": "01.01.2022",
+      "duration": 130,
+      "description":  "Screaming goats and the return of Jane Foster helped Marvel’s God of Thunder earn $760 million at the global box office. Fan reactions to Love and Thunder were uneven, but we’re hoping that Chris Hemsworth will return for one more round with Mjölnir.",  "director": " Joseph Kosinski",
+      "writers": " Jim Cash, Jack Epps Jr,  Peter Craig",
+      "actors": "Tom Cruise, Jennifer Connelly, Miles Teller",
+      "rating": {
+        "rate": 6.9,
+        "count": 944
+      },
+      "genre": ["action", "drama"],
+      "cover": "https://m.media-amazon.com/images/M/MV5BYmMxZWRiMTgtZjM0Ny00NDQxLWIxYWQtZDdlNDNkOTEzYTdlXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_.jpg"
+    }, {
+      "id": 10,
+      "title": "The Batman",
+      "dateOfCreation": "01.01.2022",
+      "duration": 130,
+      "description":  "Director Matt Reeves brought the DC Comics icon back to his roots in this brooding detective thriller. The Batman delighted both fans and critics, thanks in part to the stellar cast, including Robert Pattinson, Zoë Kravitz, Paul Dano, and an unrecognizable Colin Farrell as The Penguin.","director": " Joseph Kosinski",
+      "writers": " Jim Cash, Jack Epps Jr,  Peter Craig",
+      "actors": "Tom Cruise, Jennifer Connelly, Miles Teller",
+      "rating": {
+        "rate": 5.3,
+        "count": 944
+      },
+      "genre": ["action", "drama"],
+      "cover": "https://m.media-amazon.com/images/M/MV5BMDdmMTBiNTYtMDIzNi00NGVlLWIzMDYtZTk3MTQ3NGQxZGEwXkEyXkFqcGdeQXVyMzMwOTU5MDk@._V1_.jpg"
+    }
+
   ]
 }

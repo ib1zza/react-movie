@@ -8,7 +8,10 @@ export const filmAPI = createApi({
     getFilmById: builder.query<IFilm, number>({
       query: (id) => `filmdata/${id}`,
     }),
+    getAllFilms: builder.query<IFilm[], number | void>({
+      query: (limit) => `filmdata${"?limit=" + (limit || 10)}`,
+    }),
   }),
 });
 
-export const { useGetFilmByIdQuery } = filmAPI;
+export const { useGetFilmByIdQuery, useGetAllFilmsQuery } = filmAPI;

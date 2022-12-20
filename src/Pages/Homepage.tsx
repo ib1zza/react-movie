@@ -2,6 +2,7 @@ import React from "react";
 import MainBanner from "../components/MainBanner/MainBanner";
 import MovieList from "../components/MovieList/MovieList";
 import Wrapper from "../UI/Wrapper/Wrapper";
+import { useGetAllFilmsQuery } from "../store/services/filmAPI";
 
 const Homepage = () => {
   return (
@@ -9,7 +10,6 @@ const Homepage = () => {
       <Wrapper>
         <MainBanner />
         <MovieList />
-        <h1>lakjflkasjf</h1>
       </Wrapper>
     </div>
   );

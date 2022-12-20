@@ -10,6 +10,9 @@ interface Props {
   rating: number;
   movieId: number;
 }
+
+const notFoundPoster =
+  "https://static.displate.com/857x1200/displate/2022-04-15/7422bfe15b3ea7b5933dffd896e9c7f9_46003a1b7353dc7b5a02949bd074432a.jpg";
 const MovieCover: React.FC<Props> = ({ rating, image, movieId }) => {
   return (
     <div className={s.container}>
@@ -19,7 +22,7 @@ const MovieCover: React.FC<Props> = ({ rating, image, movieId }) => {
           <span>{rating}</span>
         </div>
 
-        <img src={imagedefault} alt="" className={s.image} />
+        <img src={image || notFoundPoster} alt="" className={s.image} />
       </Link>
     </div>
   );
