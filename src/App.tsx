@@ -7,6 +7,7 @@ import Layout from "./components/Layout/Layout";
 import ProfilePage from "./Pages/ProfilePage";
 import NotFoundPage from "./Pages/NotFoundPage";
 import FilmPage from "./Pages/FilmPage/FilmPage";
+import FavouritesPage from "./Pages/FavouritesPage/FavouritesPage";
 
 function App() {
   return (
@@ -16,6 +17,8 @@ function App() {
           <Route index element={<Homepage />} />
           <Route path={AppRoutes.PROFILE} element={<ProfilePage />} />
           <Route path={AppRoutes.FILM + "/:id"} element={<FilmPage />} />
+          <Route path={AppRoutes.FAVOURITES} element={<FavouritesPage />} />
+
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>

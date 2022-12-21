@@ -16,3 +16,10 @@ export interface IFilm {
   genre: string[];
   cover: string;
 }
+
+export interface IFavouriteFilm {
+  id: number;
+  title: string;
+  rating: Rating;
+  cover: string;
+}

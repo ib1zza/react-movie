@@ -5,16 +5,25 @@ import {
   faCalendarDays,
   faFilm,
   faHouse,
+  faStar,
   faTv,
 } from "@fortawesome/free-solid-svg-icons";
+import { faHeart } from "@fortawesome/free-regular-svg-icons";
+import { Link, NavLink } from "react-router-dom";
+import { AppRoutes } from "../../types/AppRoutes";
 const LeftNavigation = () => {
+  const setStyles = (isActive: boolean) =>
+    isActive ? s.item + " " + s.selected : s.item;
   return (
     <div className={s.navigation}>
       <div className={s.container}>
-        <div className={s.item + " " + s.selected}>
-          {" "}
+        <NavLink
+          to={AppRoutes.HOME}
+          className={({ isActive }) => setStyles(isActive)}
+        >
           <FontAwesomeIcon icon={faHouse} className={s.icon} /> Home
-        </div>
+        </NavLink>
+
         <div className={s.item}>
           <FontAwesomeIcon icon={faFilm} className={s.icon} />
           Movies
@@ -28,6 +37,14 @@ const LeftNavigation = () => {
           <FontAwesomeIcon icon={faCalendarDays} className={s.icon} />
           Upcoming
         </div>
+
+        <NavLink
+          to={AppRoutes.FAVOURITES}
+          className={({ isActive }) => setStyles(isActive)}
+        >
+          <FontAwesomeIcon icon={faHeart} className={s.icon} />
+          Favourites
+        </NavLink>
       </div>
     </div>
   );

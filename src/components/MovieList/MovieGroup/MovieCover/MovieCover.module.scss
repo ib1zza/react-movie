@@ -1,7 +1,9 @@
 @import "src/globals/vars";
 
 .container {
+  display: inline-block;
   min-width: 200px;
+  width: 200px;
   height: 315px;
   -webkit-border-radius: 20px;
   -moz-border-radius: 20px;

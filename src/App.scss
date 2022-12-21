@@ -14,11 +14,12 @@
   outline-offset: 0;
 }
 
-a.text:active, /* активная/посещенная ссылка */
-a.text:hover,  /* при наведении */
-a.text {
+a:active, /* активная/посещенная ссылка */
+a:hover,  /* при наведении */
+a {
   text-decoration: none;
   color: inherit;
+
 }
 
 
