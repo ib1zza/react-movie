@@ -5,12 +5,14 @@ import {
   faCalendarDays,
   faFilm,
   faHouse,
+  faMagnifyingGlass,
   faStar,
   faTv,
 } from "@fortawesome/free-solid-svg-icons";
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import { Link, NavLink } from "react-router-dom";
 import { AppRoutes } from "../../types/AppRoutes";
+import TvSeriesPage from "../../Pages/TvSeriesPage/TvSeriesPage";
 const LeftNavigation = () => {
   const setStyles = (isActive: boolean) =>
     isActive ? s.item + " " + s.selected : s.item;
@@ -23,21 +25,43 @@ const LeftNavigation = () => {
         >
           <FontAwesomeIcon icon={faHouse} className={s.icon} /> Home
         </NavLink>
-
         <div className={s.item}>
           <FontAwesomeIcon icon={faFilm} className={s.icon} />
           Movies
         </div>
-        <div className={s.item}>
+        <NavLink
+          to={AppRoutes.CATEGORY}
+          className={({ isActive }) => setStyles(isActive)}
+        >
+          <FontAwesomeIcon icon={faFilm} className={s.icon} />
+          Categories
+        </NavLink>
+        <NavLink
+          to={AppRoutes.GENRES}
+          className={({ isActive }) => setStyles(isActive)}
+        >
+          <FontAwesomeIcon icon={faFilm} className={s.icon} />
+          Genres
+        </NavLink>
+        <NavLink
+          to={AppRoutes.TVSERIES}
+          className={({ isActive }) => setStyles(isActive)}
+        >
           <FontAwesomeIcon icon={faTv} className={s.icon} />
           TV Series
-        </div>
+        </NavLink>
+        <NavLink
+          to={AppRoutes.SEARCH}
+          className={({ isActive }) => setStyles(isActive)}
+        >
+          <FontAwesomeIcon icon={faMagnifyingGlass} className={s.icon} />
+          Search
+        </NavLink>
 
         <div className={s.item}>
           <FontAwesomeIcon icon={faCalendarDays} className={s.icon} />
           Upcoming
         </div>
-
         <NavLink
           to={AppRoutes.FAVOURITES}
           className={({ isActive }) => setStyles(isActive)}

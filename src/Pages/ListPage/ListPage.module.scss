@@ -1,0 +1,14 @@
+@import "src/globals/vars";
+
+
+.container {
+  width: 100%;
+  max-width: 1320px;
+
+  color: $mainTextColLight;
+
+
+  &>*:not(:last-child) {
+    margin-bottom: 40px;
+  }
+}

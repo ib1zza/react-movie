@@ -193,15 +193,6 @@
   ],
   "favourites": [
     {
-      "id": 1,
-      "title": "Top Gun: Maverick",
-      "rating": {
-        "rate": 8.5,
-        "count": 944
-      },
-      "cover": "https://m.media-amazon.com/images/M/MV5BZWYzOGEwNTgtNWU3NS00ZTQ0LWJkODUtMmVhMjIwMjA1ZmQwXkEyXkFqcGdeQXVyMjkwOTAyMDU@._V1_.jpg"
-    },
-    {
       "id": 3,
       "cover": "https://m.media-amazon.com/images/M/MV5BNjI4ZTQ1OTYtNTI0Yi00M2EyLThiNjMtMzk1MmZlOWMyMDQwXkEyXkFqcGdeQXVyMTEyMjM2NDc2._V1_.jpg",
       "rating": {
@@ -211,15 +202,6 @@
       "title": "Death on the Nile"
     },
     {
-      "id": 2,
-      "cover": "https://avatars.mds.yandex.net/get-kinopoisk-image/4303601/c647716a-122d-4fba-9c60-9690e45939c0/600x900",
-      "rating": {
-        "rate": 7.5,
-        "count": 944
-      },
-      "title": "Nope"
-    },
-    {
       "id": 4,
       "cover": "https://upload.wikimedia.org/wikipedia/en/5/59/The_Gray_Man_poster.png",
       "rating": {
@@ -227,15 +209,6 @@
         "count": 944
       },
       "title": "The Gray Man"
-    },
-    {
-      "id": 5,
-      "cover": "https://m.media-amazon.com/images/M/MV5BMzVlMmY2NTctODgwOC00NDMzLWEzMWYtM2RiYmIyNTNhMTI0XkEyXkFqcGdeQXVyNTAzNzgwNTg@._V1_.jpg",
-      "rating": {
-        "rate": 4.5,
-        "count": 944
-      },
-      "title": "The Northman"
     }
   ]
 }

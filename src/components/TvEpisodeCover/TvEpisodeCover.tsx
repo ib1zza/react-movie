@@ -1,27 +1,25 @@
 import React, { useState } from "react";
-import s from "./MovieCover.module.scss";
-import { faStar } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useGetFilmByIdQuery } from "../../store/services/filmAPI";
+import s from "../MovieList/MovieGroup/MovieCover/MovieCover.module.scss";
 import { Link } from "react-router-dom";
-import { AppRoutes } from "../../../../types/AppRoutes";
+import { AppRoutes } from "../../types/AppRoutes";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { AnimatePresence, motion } from "framer-motion";
-interface Props {
-  image?: string;
-  rating: number;
-  movieId: string;
-  title: string;
-  date?: number;
-}
-
 const notFoundPoster =
   "https://static.displate.com/857x1200/displate/2022-04-15/7422bfe15b3ea7b5933dffd896e9c7f9_46003a1b7353dc7b5a02949bd074432a.jpg";
-const MovieCover: React.FC<Props> = ({
-  rating,
-  image,
-  movieId,
-  date,
-  title,
+
+interface Props {
+  id: string;
+  seasonNumber: number;
+  episodeNumber: number;
+}
+const TvEpisodeCover: React.FC<Props> = ({
+  episodeNumber,
+  seasonNumber,
+  id,
 }) => {
+  const { data } = useGetFilmByIdQuery(id);
   const [isHover, setIsHover] = useState(false);
   return (
     <motion.div
@@ -29,17 +27,21 @@ const MovieCover: React.FC<Props> = ({
       onHoverStart={() => setIsHover(true)}
       onHoverEnd={() => setIsHover(false)}
     >
-      <Link to={AppRoutes.FILM + "/" + movieId}>
-        {rating && (
+      <Link to={AppRoutes.FILM + "/" + id}>
+        {data && data.ratingsSummary.aggregateRating && (
           <div className={s.rating}>
             <FontAwesomeIcon icon={faStar} className={s.starIcon} />
-            <span>{rating}</span>
+            <span>{data.ratingsSummary.aggregateRating}</span>
           </div>
         )}
 
-        <img src={image || notFoundPoster} alt="" className={s.image} />
+        <img
+          src={(data && data.primaryImage?.url) || notFoundPoster}
+          alt=""
+          className={s.image}
+        />
         <motion.div className={s.overflow}>
-          <h4>{title}</h4>
+          <h4>{data && data.titleText.text}</h4>
           <AnimatePresence>
             {isHover && (
               <motion.div
@@ -59,9 +61,9 @@ const MovieCover: React.FC<Props> = ({
               >
                 <div>
                   <FontAwesomeIcon icon={faStar} className={s.starIcon} />
-                  <span>{rating}</span>
+                  <span>{data && data.ratingsSummary.aggregateRating}</span>
                 </div>
-                <h5>{date}</h5>
+                <h5>{data && data?.releaseYear?.year}</h5>
               </motion.div>
             )}
           </AnimatePresence>
@@ -71,4 +73,4 @@ const MovieCover: React.FC<Props> = ({
   );
 };
 
-export default MovieCover;
+export default TvEpisodeCover;

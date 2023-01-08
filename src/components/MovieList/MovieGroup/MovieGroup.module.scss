@@ -2,7 +2,28 @@
 
 .container {
   width: 100%;
+  position: relative;
 
+
+  button {
+    font-size: 30px;
+    font-weight: bold;
+    z-index: 2;
+    top: 50%;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%  ;
+    background-color: #fff;
+
+
+    &:hover {
+      color: #3f3f3f;
+    }
+  }
 }
 
 
@@ -30,9 +51,19 @@
   display: flex;
   overflow: hidden;
   flex-wrap: nowrap;
+  position: relative;
 
   &>* {
 
     margin-right: 20px;
   }
+}
+
+.button__next {
+  right: -10px;
+}
+
+.button__prev {
+  left: -10px;
+
 }

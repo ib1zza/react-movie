@@ -1,0 +1,66 @@
+@import "src/globals/vars";
+
+/* Chrome, Safari, Edge, Opera */
+.inputPrice {
+  color: white;
+}
+
+input.inputPrice::-webkit-outer-spin-button,
+input.inputPrice::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+.inputPrice  {
+  -moz-appearance: textfield;
+}
+
+.container {
+  top: 250px;
+  right: 30px;
+  position: fixed;
+  display: flex;
+  padding: 10px 15px;
+  flex-direction: column;
+  border: 1px solid $mainTextColAccent;
+  border-radius: 15px;
+  &>*:not(:last-child) {
+    margin-bottom: 15px;
+  }
+
+  color: $mainTextColLight;
+}
+
+.yearSlider {
+  padding: 10px 15px;
+  display: flex;
+  align-items: center;
+}
+
+.toggleDirection {
+  color: $mainTextColAccent;
+  font-size: 30px;
+}
+
+.genreSelect {
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.04);
+
+  border-radius: 5px;
+  overflow: hidden;
+  select {
+    color: inherit;
+    width: 100%;
+    padding: 5px 10px;
+    border-radius: 5px;
+    overflow: hidden;
+
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+  option {
+    background-color: #222222;
+  }
+}

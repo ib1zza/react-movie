@@ -1,0 +1,48 @@
+@import "src/globals/vars";
+
+//.genre {
+//  padding:  10px 15px;
+//  text-transform: capitalize;
+//  color: #fff;
+//  border: 1px solid gray;
+//  display: inline-block;
+//  border-radius: 15px;
+//
+//  margin-right: 10px;
+//  margin-bottom: 10px;
+//}
+
+
+.genre {
+  padding:  10px 0 ;
+  text-transform: capitalize;
+  color: #fff;
+
+  a {
+
+    &:hover {
+      color: $mainTextColAccent;
+      text-decoration: underline;
+
+      -webkit-transition: all 0.3s ease;
+      -moz-transition: all 0.3s ease;
+      -ms-transition: all 0.3s ease;
+      -o-transition: all 0.3s ease;
+      transition: all 0.3s ease;
+    }
+  }
+}
+
+.genreChar {
+  font-size: 30px;
+  color: #3DD2CC;
+  margin-bottom: 10px;
+}
+
+.genreList {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 60vh;
+  //overflow: hidden;
+}
