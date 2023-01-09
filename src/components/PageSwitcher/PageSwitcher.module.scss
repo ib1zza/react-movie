@@ -1,0 +1,40 @@
+@import "src/globals/vars";
+
+
+$buttonSize: 40px;
+$fontSize: 20px;
+
+
+.wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.buttons {
+  font-size: $fontSize;
+  display: flex;
+  justify-content: space-between;
+  width: calc($buttonSize * 6 + 30px);
+  &>button {
+    width: $buttonSize;
+    height: $buttonSize;
+    border-radius: 50%;
+    border: 1px solid $mainTextColAccent;
+    color: $mainTextColAccent;
+    &.active {
+      background-color: $mainTextColAccent;
+      color: $mainTextColLight;
+    }
+  }
+}
+
+.separator {
+  font-size: $fontSize * 1.4;
+  display: inline-block;
+  text-align: center;
+
+  width: $buttonSize;
+  height: $buttonSize;
+  color: $mainTextColLight;
+}
+

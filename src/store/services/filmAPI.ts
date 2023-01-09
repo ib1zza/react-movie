@@ -110,7 +110,13 @@ export const filmAPI = createApi({
     }),
     getSearchedFilms: builder.query<
       IBaseFilm[],
-      { searchQuery: string; sort: ISortFilters; list?: string; limit?: number }
+      {
+        searchQuery: string;
+        sort: ISortFilters;
+        list?: string;
+        limit?: number;
+        page?: number;
+      }
     >({
       query: (props) => ({
         url: props.searchQuery
@@ -121,6 +127,7 @@ export const filmAPI = createApi({
           info: "base_info",
           sort: "year.decr",
           limit: props.limit || 30,
+          page: props.page,
           genre: props.sort.genre,
           ...props.sort,
           list: props.list,
