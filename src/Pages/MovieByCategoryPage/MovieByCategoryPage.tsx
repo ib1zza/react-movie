@@ -1,13 +1,24 @@
 import React, { useEffect } from "react";
-import { useGetFilmsFromListQuery } from "../../store/services/filmAPI";
+import {
+  useGetFilmsFromListQuery,
+  useGetSearchedFilmsQuery,
+} from "../../store/services/filmAPI";
 import { useParams } from "react-router";
 import s from "./MovieByCategoryPage.module.scss";
 import MovieCover from "../../components/MovieList/MovieGroup/MovieCover/MovieCover";
 import { RewriteGroupName } from "../../helpers/helpers";
+import { useFilters } from "../../hooks/useFilters";
+import Sort from "../../components/Sort/Sort";
 
 const MovieByCategoryPage = () => {
   const { id: listName } = useParams();
-  const { data } = useGetFilmsFromListQuery({ list: listName });
+  const { sortFilters, onSortChange } = useFilters();
+  const { data } = useGetSearchedFilmsQuery({
+    sort: sortFilters,
+    searchQuery: "",
+    list: listName,
+  });
+  // const { data } = useGetFilmsFromListQuery({ list: listName });
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -28,6 +39,7 @@ const MovieByCategoryPage = () => {
             />
           ))}
       </div>
+      <Sort onChange={onSortChange} {...sortFilters} withGenre />
     </>
   );
 };

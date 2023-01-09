@@ -23,7 +23,7 @@ const TvSeriesPage = () => {
   return (
     <div>
       <h1 className={s.heading}>Tv Series</h1>
-      <Sort onChange={onSortChange} {...sortFilters} />
+      <Sort onChange={onSortChange} {...sortFilters} withGenre />
       <MovieList films={data} />
       {/*{data &&*/}
       {/*  data.map((el) => (*/}

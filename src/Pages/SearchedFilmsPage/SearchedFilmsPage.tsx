@@ -6,12 +6,13 @@ import SearchBar from "../../components/HeaderNavigation/SearchBar/SearchBar";
 import MovieList from "../../components/MovieList/MovieList";
 import Sort from "../../components/Sort/Sort";
 import { useFilters } from "../../hooks/useFilters";
+import { useSearchParams } from "react-router-dom";
 
 const SearchedFilmsPage = () => {
   const { query } = useParams();
-  const [searchQuery, setSearchQuery] = useState<string>(query || "");
-  const { sortFilters, onSortChange } = useFilters();
 
+  const [searchQuery, setSearchQuery] = useState<string>(query || "");
+  const { sortFilters, onSortChange } = useFilters({ sort: "year.decr" });
   const { currentData } = useGetSearchedFilmsQuery({
     searchQuery: searchQuery,
     sort: sortFilters,

@@ -1,7 +1,6 @@
 .container {
   width: 100%;
 
-
   h2 {
     margin-bottom: 20px;
     font-size: 30px;
@@ -12,12 +11,6 @@
   display: flex;
 
   max-width: 100%;
-  //display: grid;
-  //grid-template-columns: repeat(3, 220px);
-  //grid-auto-columns: 220px;
-  //grid-template-rows: 1fr;
-
-  //grid-auto-flow:column;
   flex-wrap: wrap;
   &>*:not(:last-child) {
     margin-right: 20px;

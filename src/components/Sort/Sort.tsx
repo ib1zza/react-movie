@@ -38,8 +38,8 @@ const Sort: React.FC<Props> = ({
   withTitleTypes,
 }) => {
   const [sortFilters, setSortFilters] = useState<ISortFilters>({
-    startYear: startYear || 1800,
-    endYear: endYear || 2025,
+    startYear: startYear || 2000,
+    endYear: endYear || 2023,
     sort: sort || "year.incr",
     genre: genre || undefined,
     titleType: titleType || undefined,
@@ -54,9 +54,9 @@ const Sort: React.FC<Props> = ({
     if (!sortFilters || !sortFilters.endYear || !sortFilters.startYear) return;
     if (
       sortFilters.endYear < 1800 ||
-      sortFilters.endYear > 2025 ||
+      sortFilters.endYear > 2030 ||
       sortFilters.startYear < 1800 ||
-      sortFilters.startYear > 2025 ||
+      sortFilters.startYear > 2030 ||
       sortFilters.endYear < sortFilters.startYear
     ) {
       return;

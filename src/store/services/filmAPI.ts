@@ -31,7 +31,6 @@ export const filmAPI = createApi({
         return response.results;
       },
     }),
-
     getAllGenres: builder.query<string[], void>({
       query: () => {
         return { url: `/titles/utils/genres`, headers: headers };
@@ -111,7 +110,7 @@ export const filmAPI = createApi({
     }),
     getSearchedFilms: builder.query<
       IBaseFilm[],
-      { searchQuery: string; sort: ISortFilters }
+      { searchQuery: string; sort: ISortFilters; list?: string; limit?: number }
     >({
       query: (props) => ({
         url: props.searchQuery
@@ -121,9 +120,10 @@ export const filmAPI = createApi({
         params: {
           info: "base_info",
           sort: "year.decr",
-          limit: 30,
+          limit: props.limit || 30,
           genre: props.sort.genre,
           ...props.sort,
+          list: props.list,
         },
       }),
       transformResponse: (response: IResponse<IBaseFilm[]>) => {

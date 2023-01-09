@@ -33,7 +33,11 @@ const MovieGroup = ({ listName }: { listName: string }) => {
   return (
     <div className={s.container}>
       <div className={s.heading}>
-        <h2>{RewriteGroupName(listName)}</h2>
+        <h2>
+          <Link to={AppRoutes.CATEGORY + "/" + listName}>
+            {RewriteGroupName(listName)}
+          </Link>
+        </h2>
         <span>
           <Link to={AppRoutes.CATEGORY + "/" + listName}>See all</Link>
         </span>
