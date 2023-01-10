@@ -31,6 +31,19 @@ export const filmAPI = createApi({
         return response.results;
       },
     }),
+    getFilmsByIds: builder.query<IBaseFilm[], string[]>({
+      query: (idsList) => {
+        return {
+          url: "https://moviesdatabase.p.rapidapi.com/titles/x/titles-by-ids",
+          headers: headers,
+          params: { idsList, info: "base_info" },
+        };
+      },
+      transformResponse: (response: IResponse<IBaseFilm[]>) => {
+        return response.results;
+      },
+    }),
+
     getAllGenres: builder.query<string[], void>({
       query: () => {
         return { url: `/titles/utils/genres`, headers: headers };
@@ -137,45 +150,15 @@ export const filmAPI = createApi({
         return response.results;
       },
     }),
-    getFavouritesFilms: builder.query<IFilm[], number | void>({
-      query: (limit) => `favourites${"?limit=" + (limit || 10)}`,
-      providesTags: (result) =>
-        result
-          ? [
-              ...result.map(({ id }: { id: number }) => ({
-                type: "Favourites",
-                id,
-              })),
-              { type: "Favourites" as const, id: "LIST" },
-            ]
-          : [{ type: "Favourites" as const, id: "LIST" }],
-    }),
-    //args - { id: number;title: string;rating: Rating; cover: string;}
-    addToFavourites: builder.mutation<IFavouriteFilm, IFavouriteFilm>({
-      query: (film) => ({
-        url: "favourites",
-        method: "POST",
-        body: film,
-      }),
-      invalidatesTags: [{ type: "Favourites" as const, id: "LIST" }],
-    }),
-    removeFromFavourites: builder.mutation<IFavouriteFilm, number>({
-      query: (id) => ({
-        url: "favourites/" + id,
-        method: "DELETE",
-        body: id,
-      }),
-      invalidatesTags: [{ type: "Favourites" as const, id: "LIST" }],
-    }),
   }),
 });
 
 export const {
   useGetFilmByIdQuery,
   // useGetAllFilmsQuery,
-  useAddToFavouritesMutation,
-  useGetFavouritesFilmsQuery,
-  useRemoveFromFavouritesMutation,
+  // useAddToFavouritesMutation,
+  // useRemoveFromFavouritesMutation,
+  // useGetFavouritesFilmsQuery,
   useGetAllListsQuery,
   useGetFilmsFromListQuery,
   useGetAllGenresQuery,
@@ -183,4 +166,5 @@ export const {
   useGetSearchedFilmsQuery,
   useGetSeriesIdBySeasonQuery,
   useGetAllTitleTypesQuery,
+  useGetFilmsByIdsQuery,
 } = filmAPI;

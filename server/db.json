@@ -193,22 +193,12 @@
   ],
   "favourites": [
     {
-      "id": 3,
-      "cover": "https://m.media-amazon.com/images/M/MV5BNjI4ZTQ1OTYtNTI0Yi00M2EyLThiNjMtMzk1MmZlOWMyMDQwXkEyXkFqcGdeQXVyMTEyMjM2NDc2._V1_.jpg",
-      "rating": {
-        "rate": 9.5,
-        "count": 944
-      },
-      "title": "Death on the Nile"
+      "id": "tt25785456",
+      "likeDate": 1673374075154
     },
     {
-      "id": 4,
-      "cover": "https://upload.wikimedia.org/wikipedia/en/5/59/The_Gray_Man_poster.png",
-      "rating": {
-        "rate": 6.5,
-        "count": 944
-      },
-      "title": "The Gray Man"
+      "id": "tt0015414",
+      "likeDate": 1673374776318
     }
   ]
 }

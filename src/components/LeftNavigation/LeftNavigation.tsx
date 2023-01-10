@@ -25,10 +25,17 @@ const LeftNavigation = () => {
         >
           <FontAwesomeIcon icon={faHouse} className={s.icon} /> Home
         </NavLink>
-        <div className={s.item}>
-          <FontAwesomeIcon icon={faFilm} className={s.icon} />
-          Movies
-        </div>
+        <NavLink
+          to={AppRoutes.SEARCH}
+          className={({ isActive }) => setStyles(isActive)}
+        >
+          <FontAwesomeIcon icon={faMagnifyingGlass} className={s.icon} />
+          Search
+        </NavLink>
+        {/*<div className={s.item}>*/}
+        {/*  <FontAwesomeIcon icon={faFilm} className={s.icon} />*/}
+        {/*  Movies*/}
+        {/*</div>*/}
         <NavLink
           to={AppRoutes.CATEGORY}
           className={({ isActive }) => setStyles(isActive)}
@@ -49,13 +56,6 @@ const LeftNavigation = () => {
         >
           <FontAwesomeIcon icon={faTv} className={s.icon} />
           TV Series
-        </NavLink>
-        <NavLink
-          to={AppRoutes.SEARCH}
-          className={({ isActive }) => setStyles(isActive)}
-        >
-          <FontAwesomeIcon icon={faMagnifyingGlass} className={s.icon} />
-          Search
         </NavLink>
 
         <div className={s.item}>

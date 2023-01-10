@@ -15,7 +15,7 @@ export const favouritesApi = createApi({
       providesTags: (result) =>
         result
           ? [
-              ...result.map(({ id }: { id: number }) => ({
+              ...result.map(({ id }: { id: string }) => ({
                 type: "Favourites",
                 id,
               })),
@@ -24,19 +24,22 @@ export const favouritesApi = createApi({
           : [{ type: "Favourites" as const, id: "LIST" }],
     }),
     //args - { id: number;title: string;rating: Rating; cover: string;}
-    addToFavourites: builder.mutation<IFavouriteFilm, IFavouriteFilm>({
-      query: (film) => ({
+    addToFavourites: builder.mutation<string, string>({
+      query: (id) => ({
         url: "favourites",
         method: "POST",
-        body: film,
+        body: {
+          id,
+          likeDate: Date.now(),
+        },
       }),
       invalidatesTags: [{ type: "Favourites" as const, id: "LIST" }],
     }),
-    removeFromFavourites: builder.mutation<IFavouriteFilm, number>({
+    removeFromFavourites: builder.mutation<string, string>({
       query: (id) => ({
         url: "favourites/" + id,
         method: "DELETE",
-        body: id,
+        // body: id,
       }),
       invalidatesTags: [{ type: "Favourites" as const, id: "LIST" }],
     }),

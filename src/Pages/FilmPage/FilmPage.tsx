@@ -13,33 +13,30 @@ import { faShareNodes, faStar } from "@fortawesome/free-solid-svg-icons";
 import Wrapper from "../../UI/Wrapper/Wrapper";
 import { IBaseFilm, IMiniFilm, ISeries } from "../../types/IFilm";
 import Season from "../../components/Season/Season";
+import {
+  useAddToFavouritesMutation,
+  useGetFavouritesFilmsQuery,
+  useRemoveFromFavouritesMutation,
+} from "../../store/services/favouritesAPI";
 const notFoundPoster =
   "https://static.displate.com/857x1200/displate/2022-04-15/7422bfe15b3ea7b5933dffd896e9c7f9_46003a1b7353dc7b5a02949bd074432a.jpg";
 
 const FilmPage = () => {
   const { id } = useParams();
-  // const { data: liked } = useGetFavouritesFilmsQuery();
+  const { data: liked } = useGetFavouritesFilmsQuery();
   const [isLiked, setIsLiked] = useState(false);
   const [data, setData] = useState<IBaseFilm | ISeries>();
   const [isSeries, setIsSeries] = useState(false);
-  // const [addToFav] = useAddToFavouritesMutation();
-  // const [removeFromFav] = useRemoveFromFavouritesMutation();
+  const [addToFav] = useAddToFavouritesMutation();
+  const [removeFromFav] = useRemoveFromFavouritesMutation();
   // @ts-ignore
   const { currentData, isLoading } = useGetFilmByIdQuery(id as number);
 
-  // useEffect(() => {
-  //   if (currentData && currentData.titleType.isSeries) {
-  //     setData(data as ISeries);
-  //   } else {
-  //     setData(data as IBaseFilm);
-  //   }
-  // }, [currentData, data]);
-
-  // useEffect(() => {
-  //   const ids = (liked && liked.map((el) => el.id)) || 0;
-  //   console.log(ids);
-  //   setIsLiked(!!(ids && ids.includes(parseInt(id || ""))));
-  // }, [id, liked]);
+  useEffect(() => {
+    const ids = (liked && liked.map((el) => el.id)) || 0;
+    console.log(ids);
+    setIsLiked(!!(ids && ids.includes(id || "")));
+  }, [id, liked]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -65,28 +62,9 @@ const FilmPage = () => {
     return <h1>no film...</h1>;
   }
 
-  {
-    /*// const handlerLike = () => {*/
-  }
-  {
-    /*//   isLiked*/
-  }
-  {
-    /*//     ? removeFromFav(data.id)*/
-  }
-  {
-    /*//     : addToFav({*/
-  }
-  {
-    /*//         id: data.id,*/
-  }
-  {
-    /*//         cover: data.cover,*/
-  }
-  // //         rating: data.rating,
-  // //         title: data.title,
-  // //       });
-  // // };
+  const handlerLike = () => {
+    isLiked && id ? removeFromFav(id) : addToFav(id || "");
+  };
 
   return (
     <Wrapper>
@@ -148,7 +126,7 @@ const FilmPage = () => {
             <div className={s.icons}>
               <FontAwesomeIcon
                 icon={faHeart}
-                onClick={() => {}}
+                onClick={handlerLike}
                 className={(isLiked && s.liked) || ""}
               />
               <FontAwesomeIcon icon={faShareNodes} />
