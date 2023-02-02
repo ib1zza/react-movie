@@ -12,7 +12,7 @@ import {
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import { Link, NavLink } from "react-router-dom";
 import { AppRoutes } from "../../types/AppRoutes";
-import TvSeriesPage from "../../Pages/TvSeriesPage/TvSeriesPage";
+
 const LeftNavigation = () => {
   const setStyles = (isActive: boolean) =>
     isActive ? s.item + " " + s.selected : s.item;
@@ -58,10 +58,10 @@ const LeftNavigation = () => {
           TV Series
         </NavLink>
 
-        <div className={s.item}>
-          <FontAwesomeIcon icon={faCalendarDays} className={s.icon} />
-          Upcoming
-        </div>
+        {/*<div className={s.item}>*/}
+        {/*  <FontAwesomeIcon icon={faCalendarDays} className={s.icon} />*/}
+        {/*  Upcoming*/}
+        {/*</div>*/}
         <NavLink
           to={AppRoutes.FAVOURITES}
           className={({ isActive }) => setStyles(isActive)}

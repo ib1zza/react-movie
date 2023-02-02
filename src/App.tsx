@@ -2,7 +2,7 @@ import React from "react";
 import "./App.scss";
 import { Route, Routes } from "react-router";
 import { AppRoutes } from "./types/AppRoutes";
-import Homepage from "./Pages/Homepage";
+import Homepage from "./Pages/Homepage/Homepage";
 import Layout from "./components/Layout/Layout";
 import ProfilePage from "./Pages/ProfilePage";
 import NotFoundPage from "./Pages/NotFoundPage";
@@ -40,10 +40,6 @@ function App() {
             element={<SearchedFilmsPage />}
           />
           <Route path={AppRoutes.SEARCH} element={<SearchedFilmsPage />} />
-          {/*<Route*/}
-          {/*  path={AppRoutes.SEARCH + "?query"}*/}
-          {/*  element={<SearchedFilmsPage />}*/}
-          {/*/>*/}
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>

@@ -129,6 +129,7 @@ export const filmAPI = createApi({
         list?: string;
         limit?: number;
         page?: number;
+        isOncoming?: boolean;
       }
     >({
       query: (props) => ({
@@ -142,8 +143,8 @@ export const filmAPI = createApi({
           limit: props.limit || 30,
           page: props.page,
           genre: props.sort.genre,
-          ...props.sort,
           list: props.list,
+          ...props.sort,
         },
       }),
       transformResponse: (response: IResponse<IBaseFilm[]>) => {

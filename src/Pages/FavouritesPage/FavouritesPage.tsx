@@ -1,7 +1,7 @@
 import React from "react";
 import Wrapper from "../../UI/Wrapper/Wrapper";
 import { useGetFavouritesFilmsQuery } from "../../store/services/favouritesAPI";
-import MovieCover from "../../components/MovieList/MovieGroup/MovieCover/MovieCover";
+
 import s from "./FavouritesPage.module.scss";
 import { useGetFilmsByIdsQuery } from "../../store/services/filmAPI";
 import MovieList from "../../components/MovieList/MovieList";
