@@ -2,15 +2,13 @@ import s from "./LeftNavigation.module.scss";
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faCalendarDays,
   faFilm,
   faHouse,
   faMagnifyingGlass,
-  faStar,
   faTv,
 } from "@fortawesome/free-solid-svg-icons";
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { AppRoutes } from "../../types/AppRoutes";
 
 const LeftNavigation = () => {
@@ -32,10 +30,7 @@ const LeftNavigation = () => {
           <FontAwesomeIcon icon={faMagnifyingGlass} className={s.icon} />
           Search
         </NavLink>
-        {/*<div className={s.item}>*/}
-        {/*  <FontAwesomeIcon icon={faFilm} className={s.icon} />*/}
-        {/*  Movies*/}
-        {/*</div>*/}
+
         <NavLink
           to={AppRoutes.CATEGORY}
           className={({ isActive }) => setStyles(isActive)}
@@ -58,10 +53,6 @@ const LeftNavigation = () => {
           TV Series
         </NavLink>
 
-        {/*<div className={s.item}>*/}
-        {/*  <FontAwesomeIcon icon={faCalendarDays} className={s.icon} />*/}
-        {/*  Upcoming*/}
-        {/*</div>*/}
         <NavLink
           to={AppRoutes.FAVOURITES}
           className={({ isActive }) => setStyles(isActive)}

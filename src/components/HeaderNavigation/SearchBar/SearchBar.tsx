@@ -7,15 +7,8 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useGetSearchedFilmsQuery } from "../../../store/services/filmAPI";
-import {
-  Link,
-  useLocation,
-  useNavigate,
-  useSearchParams,
-} from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { AppRoutes } from "../../../types/AppRoutes";
-import { useParams } from "react-router";
-// import { useParams } from "react-router";
 
 interface Props {
   value: string;
@@ -23,34 +16,24 @@ interface Props {
   placeholder?: string;
 }
 const SearchBar: FC<Props> = ({ placeholder, value, onChange }) => {
-  // let [searchParams, setSearchParams] = useSearchParams();
   const { pathname } = useLocation();
-  const [isVisible, setIsVisible] = useState(false);
-
-  // const navigate = useNavigate();
+  const [isOverflowVisible, setIsOverflowVisible] = useState(false);
 
   const { data: currentData } = useGetSearchedFilmsQuery({
     searchQuery: value || "",
     sort: { sort: "year.decr" },
     limit: 10,
   });
-  // console.log(searchParams.toString());
-  // const onChangeHandler = (value: string) => {
-  //   setSearchParams((prev) => ({
-  //     ...prev,
-  //     search: value,
-  //   }));
-  //   // navigate("?search=" + value, { replace: false });
-  //   onChange(value);
-  // };
 
-  useEffect(() => setIsVisible(false), [pathname]);
+  useEffect(() => setIsOverflowVisible(false), [pathname]);
   return (
     <>
       <div
         className={
           s.searchBarContainer +
-          (currentData && isVisible && value ? " " + s.input__active : "")
+          (currentData && isOverflowVisible && value
+            ? " " + s.input__active
+            : "")
         }
         onClick={(e) => e.stopPropagation()}
       >
@@ -59,7 +42,7 @@ const SearchBar: FC<Props> = ({ placeholder, value, onChange }) => {
           type="text"
           placeholder={placeholder}
           value={value}
-          onFocus={() => setIsVisible(true)}
+          onFocus={() => setIsOverflowVisible(true)}
           onChange={(e) => onChange(e.target.value)}
         />
         {value && (
@@ -70,7 +53,7 @@ const SearchBar: FC<Props> = ({ placeholder, value, onChange }) => {
           />
         )}
         <div className={s.results}>
-          {currentData && isVisible && value && (
+          {currentData && isOverflowVisible && value && (
             <>
               <Link to={AppRoutes.SEARCH + "/" + value}>
                 <div className={s.result__item}>
@@ -102,8 +85,11 @@ const SearchBar: FC<Props> = ({ placeholder, value, onChange }) => {
           )}
         </div>
       </div>
-      {isVisible && (
-        <div className={s.overflow} onClick={() => setIsVisible(false)} />
+      {isOverflowVisible && (
+        <div
+          className={s.overflow}
+          onClick={() => setIsOverflowVisible(false)}
+        />
       )}
     </>
   );

@@ -8,6 +8,10 @@
   color: $NavTextCol;
   border-radius: 0 45px 45px 0;
   padding: 60px 0;
+
+  @media screen and (max-width: 850px) {
+    display: none;
+  }
 }
 
 .container {

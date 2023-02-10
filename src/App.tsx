@@ -5,7 +5,7 @@ import { AppRoutes } from "./types/AppRoutes";
 import Homepage from "./Pages/Homepage/Homepage";
 import Layout from "./components/Layout/Layout";
 import ProfilePage from "./Pages/ProfilePage";
-import NotFoundPage from "./Pages/NotFoundPage";
+import NotFoundPage from "./Pages/NotFoundPage/NotFoundPage";
 import FilmPage from "./Pages/FilmPage/FilmPage";
 import FavouritesPage from "./Pages/FavouritesPage/FavouritesPage";
 import MovieByCategoryPage from "./Pages/MovieByCategoryPage/MovieByCategoryPage";

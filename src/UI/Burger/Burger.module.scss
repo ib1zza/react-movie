@@ -1,0 +1,82 @@
+@import "src/globals/vars";
+
+$zi-burger__button: 203;
+$zi-burger__overflow: 200;
+$zi-burger__content: 202;
+.burger__background {
+  height: 1000px;
+  position: fixed;
+  top: 0;
+  left:  0;
+  bottom: 0;
+  width: 300px;
+  max-width: 100%;
+  z-index:$zi-burger__content;
+  background: $NavBgCol;
+}
+
+
+.header__burger__button {
+  position: fixed;
+  top:  calc(10px);
+  left:  calc(40px - 30px);
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  color: #3DD2CC;
+  z-index:$zi-burger__button;
+}
+
+
+.header__burger__nav {
+  width: 300px;
+  max-width: 100%;
+  z-index:$zi-burger__content;
+  padding: 80px 30px;
+  position: fixed;
+  top: 0;
+  left: 0;
+
+
+  height: 130vh;
+  background-color: transparent;
+
+}
+
+.header__burger__nav__link {
+
+  padding: 18px 0;
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+
+  a {
+    color: $mainTextColDark;
+    font-weight: bold;
+    z-index: $zi-burger__content;
+  }
+
+  .active {
+    position: relative;
+
+    color: $mainTextColAccent;
+
+  }
+
+}
+.header__burger__overlay {
+  z-index: $zi-burger__overflow;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+
+  display: block;
+  background-color: rgba(0, 0, 0, 0.8);
+}

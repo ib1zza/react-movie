@@ -1,0 +1,14 @@
+
+.button {
+    padding: 10px;
+
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+
+    &>*:not(:last-child) {
+        margin-right: 5px;
+    }
+}

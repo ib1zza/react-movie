@@ -80,9 +80,9 @@ const FilmPage = () => {
             </h2>
             <div className={s.genres}>
               {data?.genres?.genres?.map((genreName) => (
-                <span className={s.genre} key={genreName.id}>
+                <div className={s.genre} key={genreName.id}>
                   {genreName.text}
-                </span>
+                </div>
               ))}
             </div>
           </div>
@@ -108,17 +108,6 @@ const FilmPage = () => {
               ))}
             </div>
           )}
-          {/*<div className={s.description__personalities}>*/}
-          {/*  <div className={s.section}>*/}
-          {/*    /!*Director : <span>{data.}</span>*!/*/}
-          {/*  </div>*/}
-          {/*  <div className={s.section}>*/}
-          {/*    /!*Writers : <span>{data.writers}</span>*!/*/}
-          {/*  </div>*/}
-          {/*  <div className={s.section}>*/}
-          {/*    /!*Stars : <span>{data.actors}</span>*!/*/}
-          {/*  </div>*/}
-          {/*</div>*/}
         </div>
 
         <div className={s.aside}>

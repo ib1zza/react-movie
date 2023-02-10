@@ -1,19 +1,32 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import s from "./Layout.module.scss";
 import LeftNavigation from "../LeftNavigation/LeftNavigation";
-import HeaderNavigation from "../HeaderNavigation/HeaderNavigation";
+
 import { Outlet } from "react-router";
+import Burger from "../../UI/Burger/Burger";
+import ModalProvider from "../../context/ModalContext";
+import useWindowDimensions from "../../hooks/useWindowDimensions";
+import HeaderNavigation from "../HeaderNavigation/HeaderNavigation";
 const Layout = () => {
+  const { width } = useWindowDimensions();
   return (
     <div>
-      <LeftNavigation />
+      <ModalProvider>
+        {width < 850 ? (
+          <>
+            <Burger />
+            <HeaderNavigation />
+          </>
+        ) : (
+          <LeftNavigation />
+        )}
 
-      <div className={s.container}>
-        <HeaderNavigation />
-        <Outlet />
-      </div>
+        <div className={s.container}>
+          <Outlet />
+        </div>
 
-      <footer>this is footer</footer>
+        <footer>this is footer</footer>
+      </ModalProvider>
     </div>
   );
 };

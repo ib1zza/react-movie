@@ -3,20 +3,27 @@ import s from "./MainBanner.module.scss";
 import banner from "../../assets/Moonfall.jpg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleInfo, faPlay } from "@fortawesome/free-solid-svg-icons";
+import { useGetFilmByIdQuery } from "../../store/services/filmAPI";
+import { Link } from "react-router-dom";
+import { AppRoutes } from "../../types/AppRoutes";
 const MainBanner = () => {
+  const { data } = useGetFilmByIdQuery("tt9419884");
+
+  if (!data) {
+    return <div></div>;
+  }
   return (
     <div className={s.container}>
-      <img src={banner} alt="#" className={s.picture} />
-      <div className={s.buttons}>
-        <button>
-          <FontAwesomeIcon icon={faPlay} className={s.icon} />
-          Play
-        </button>
-        <button>
-          <FontAwesomeIcon icon={faCircleInfo} className={s.icon} />
-          More info
-        </button>
-      </div>
+      {data ? (
+        <>
+          <Link to={AppRoutes.FILM + "/" + data.id}>
+            <img src={data.primaryImage?.url} alt="#" className={s.picture} />
+            <div className={s.description}>{data.titleText.text}</div>
+          </Link>
+        </>
+      ) : (
+        "loading"
+      )}
     </div>
   );
 };

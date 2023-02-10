@@ -27,9 +27,14 @@
       }
 
       .genres {
+
         margin-left: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
 
         .genre {
+          margin-top: 10px;
           font-size: 15px;
           color: rgba($mainTextColLight, 80%);
           border: 1px solid rgba($mainTextColLight, 30%);

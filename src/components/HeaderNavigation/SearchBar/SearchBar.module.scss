@@ -1,15 +1,23 @@
 @import "../../../globals/vars";
 
+
+
+$zi-search_overflow: 90;
+$zi-search_block: 91;
 .searchBarContainer {
-  z-index: 16;
+  z-index: $zi-search_block;
   padding: 15px 35px;
   display: flex;
   align-items: center;
-  width: 60%;
+  width: 100%;
   border-radius: 30px;
   background-color: $SearchBarBgCol;
   color: $SearchBarTextCol;
   font-size: 25px ;
+
+  @media screen and (max-width: 560px) {
+    font-size: 18px;
+  }
 
   input {
     background-color: transparent;
@@ -35,7 +43,7 @@
 .results {
   background-color: $SearchBarBgCol;
   z-index: 16;
-  //background-color: red;
+
   position: absolute;
   top: 100%;
   left: 0;
@@ -85,7 +93,7 @@
   height: 100vh;
   background-color: #000000;
   opacity: 0.8;
-  z-index: 15;
+  z-index: $zi-search_overflow;
 }
 
 .close {
