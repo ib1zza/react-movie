@@ -9,7 +9,6 @@ import {
   useGetAllGenresQuery,
   useGetAllTitleTypesQuery,
 } from "../../store/services/filmAPI";
-import { useNavigate, useSearchParams } from "react-router-dom";
 
 export type ISortTypes = "year.incr" | "year.decr";
 
@@ -62,19 +61,6 @@ const Sort: React.FC<Props> = ({
       return;
     }
 
-    /*navigate(
-      `?sort=${sortFilters.sort}?startYear=${sortFilters.startYear}?endYear=${
-        sortFilters.endYear
-      }${
-        sortFilters.genre === "unselected" ? "" : "?genre=" + sortFilters.genre
-      }${
-        sortFilters.titleType === "unselected"
-          ? ""
-          : "?titleType=" + sortFilters.titleType
-      }`,
-      { replace: false, relative: "path" }
-    );*/
-
     if (
       sortFilters.genre === "unselected" &&
       sortFilters.titleType === "unselected"
@@ -102,6 +88,7 @@ const Sort: React.FC<Props> = ({
   return (
     <div className={s.container}>
       <div className={s.yearSlider}>
+        <span>From: </span>
         <input
           type="number"
           min={1800}
@@ -116,6 +103,7 @@ const Sort: React.FC<Props> = ({
             })
           }
         />
+        <span>To: </span>
         <input
           type="number"
           min={1800}

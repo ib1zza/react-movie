@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import s from "./HeaderNavigation.module.scss";
-import UserProfileIcon from "./UserProfileIcon/UserProfileIcon";
 import { useLocation } from "react-router-dom";
 const HeaderNavigation = () => {
   const { pathname } = useLocation();

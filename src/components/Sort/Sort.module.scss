@@ -19,7 +19,7 @@ input.inputPrice::-webkit-inner-spin-button {
 .container {
   top: 250px;
   right: 30px;
-  position: fixed;
+
   display: flex;
   padding: 10px 15px;
   flex-direction: column;
@@ -36,6 +36,16 @@ input.inputPrice::-webkit-inner-spin-button {
   padding: 10px 15px;
   display: flex;
   align-items: center;
+
+  span {
+    align-self: center;
+    margin-right: 10px;
+  }
+
+  input {
+    color: $mainTextColAccent;
+    align-self: stretch;
+  }
 }
 
 .toggleDirection {

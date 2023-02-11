@@ -6,7 +6,6 @@ import SearchBar from "../../components/HeaderNavigation/SearchBar/SearchBar";
 import MovieList from "../../components/MovieList/MovieList";
 import Sort from "../../components/Sort/Sort";
 import { useFilters } from "../../hooks/useFilters";
-import { useSearchParams } from "react-router-dom";
 
 const SearchedFilmsPage = () => {
   const { query } = useParams();
@@ -26,7 +25,9 @@ const SearchedFilmsPage = () => {
         onChange={(query: string) => setSearchQuery(query)}
       />
       <Sort {...sortFilters} onChange={onSortChange} withGenre withTitleTypes />
-      <MovieList films={currentData} />
+      <div className={s.results}>
+        <MovieList films={currentData} />
+      </div>
     </div>
   );
 };
