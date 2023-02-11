@@ -2,59 +2,51 @@
 
 .container {
   width: 100%;
+  max-width: 1300px;
   color: $mainTextColLight;
   display: flex;
   justify-content: space-between;
-
-
 
   .description {
     width: 100%;
     display: flex;
     flex-direction: column;
+    margin-right: 40px;
+
 
     &__header {
       width: 100%;
       display: flex;
       align-items: center;
       justify-content: start;
-      margin-bottom: 25px;
+      margin-bottom: 20px;
+
 
       .mainInfo {
-
         font-weight: 500;
         font-size: 23px;
       }
 
-      .genres {
 
-        margin-left: 20px;
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-
-        .genre {
-          margin-top: 10px;
-          font-size: 15px;
-          color: rgba($mainTextColLight, 80%);
-          border: 1px solid rgba($mainTextColLight, 30%);
-
-          &:not(:last-child) {
-            margin-right: 10px;
-          }
-
-          border-radius: 15px;
-          padding: 5px 15px;
-        }
-      }
     }
     &__main {
       display: flex;
 
       .caption {
+        max-width: 500px;
         max-height: 500px;
         border-radius: 10px;
         margin-right: 10px;
+      }
+
+      @media screen and (max-width: 1200px) {
+        flex-direction: column;
+
+        .caption {
+          max-height: none;
+          margin-right: 0;
+          margin-bottom: 20px;
+        }
       }
     }
     &__text {
@@ -62,6 +54,9 @@
       font-size: 20px;
       line-height: 30px;
       margin-bottom: 20px;
+
+
+
     }
 
     &__personalities {
@@ -85,16 +80,20 @@
   }
 
   .aside {
-    width: 30%;
+
     display: flex;
     flex-direction: column;
     &__header {
       display: flex;
-      justify-content: flex-end;
+
       line-height: 1;
+
+
       .icons {
+        display: flex;
+
         font-size: 30px;
-        margin-right: 20px;
+        padding: 0 15px;
         color: rgba($mainTextColLight, 25%);
         cursor: pointer;
 
@@ -105,7 +104,11 @@
 
       .reviews {
         display: flex;
+
+
+
         align-items: center;
+
         .star {
           color: #ddb114;
           font-size: 25px;
@@ -120,6 +123,26 @@
         .count {
           font-size: 20px;
           color: $mainTextColDark;
+          @media screen and (max-width: 1400px) {
+            display: none;
+          }
+        }
+      }
+
+      @media screen and (max-width: 1400px) {
+        flex-direction: column;
+
+        &>*:not(:last-child) {
+          margin-bottom: 20px;
+        }
+
+        .icons {
+          padding: 0;
+          justify-content: space-between;
+        }
+
+        .reviews {
+          justify-content: space-between;
         }
       }
     }
@@ -132,4 +155,26 @@
 
 .series {
   margin-top: 40px;
+}
+
+.genres {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill,minmax(100px, 1fr));
+  grid-template-rows: 1fr;
+  grid-gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+
+  .genre {
+    text-align: center;
+    font-size: 15px;
+    color: rgba($mainTextColLight, 80%);
+    border: 1px solid rgba($mainTextColLight, 30%);
+
+
+
+    border-radius: 15px;
+    padding: 5px 15px;
+  }
 }

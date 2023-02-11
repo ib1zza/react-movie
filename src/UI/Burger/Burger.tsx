@@ -55,6 +55,7 @@ const links = [
   { name: "home", to: AppRoutes.HOME },
   { name: "search", to: AppRoutes.SEARCH },
   { name: "genres", to: AppRoutes.GENRES },
+  { name: "categories", to: AppRoutes.CATEGORY },
   { name: "lists", to: AppRoutes.LISTS },
 ];
 

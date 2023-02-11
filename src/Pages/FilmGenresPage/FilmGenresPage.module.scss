@@ -4,7 +4,7 @@
   padding: 10px 0;
   text-transform: capitalize;
   color: #fff;
-
+  text-align: center;
   a {
 
     &:hover {
@@ -21,16 +21,19 @@
 }
 
 .genreChar {
+  text-align: center;
   font-size: 30px;
   color: #3DD2CC;
   margin-bottom: 10px;
 }
 
 .genreList {
-  display: flex;
+  display: grid;
+  grid-gap: 30px;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
   flex-direction: column;
   flex-wrap: wrap;
-  height: 700px;
+
 
 
   @media screen and (max-width: 900px) {

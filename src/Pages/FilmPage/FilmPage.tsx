@@ -18,6 +18,7 @@ import {
   useGetFavouritesFilmsQuery,
   useRemoveFromFavouritesMutation,
 } from "../../store/services/favouritesAPI";
+import useWindowDimensions from "../../hooks/useWindowDimensions";
 const notFoundPoster =
   "https://static.displate.com/857x1200/displate/2022-04-15/7422bfe15b3ea7b5933dffd896e9c7f9_46003a1b7353dc7b5a02949bd074432a.jpg";
 
@@ -31,7 +32,7 @@ const FilmPage = () => {
   const [removeFromFav] = useRemoveFromFavouritesMutation();
   // @ts-ignore
   const { currentData, isLoading } = useGetFilmByIdQuery(id as number);
-
+  const { width } = useWindowDimensions();
   useEffect(() => {
     const ids = (liked && liked.map((el) => el.id)) || 0;
     console.log(ids);
@@ -67,59 +68,45 @@ const FilmPage = () => {
   };
 
   return (
-    <Wrapper>
-      <div className={s.container}>
-        <div className={s.description}>
-          <div className={s.description__header}>
-            <h2 className={s.mainInfo}>
-              {[
-                data.titleText.text,
-                data?.releaseYear?.year,
-                data.runtime && data.runtime.seconds / 60 + "m",
-              ].join(" • ")}
-            </h2>
-            <div className={s.genres}>
-              {data?.genres?.genres?.map((genreName) => (
-                <div className={s.genre} key={genreName.id}>
-                  {genreName.text}
-                </div>
-              ))}
-            </div>
-          </div>
-          <div className={s.description__main}>
-            <img
-              src={data?.primaryImage?.url || notFoundPoster}
-              alt=""
-              className={s.caption}
-            />
-
-            <p className={s.description__text}>
-              {data.plot?.plotText?.plainText}
-            </p>
-          </div>
-          {isSeries && data && (
-            <div className={s.series}>
-              {data?.episodes?.seasons?.map((el) => (
-                <Season
-                  key={el.number}
-                  seriesId={data.id}
-                  seasonNumber={el.number}
-                ></Season>
-              ))}
-            </div>
-          )}
+    <div className={s.container}>
+      <div className={s.description}>
+        <div className={s.description__header}>
+          <h2 className={s.mainInfo}>
+            {[
+              data.titleText.text,
+              data?.releaseYear?.year,
+              data.runtime && data.runtime.seconds / 60 + "m",
+            ].join(" • ")}
+          </h2>
         </div>
 
+        <div className={s.description__main}>
+          <img
+            src={data?.primaryImage?.url || notFoundPoster}
+            alt=""
+            className={s.caption}
+          />
+
+          <p className={s.description__text}>
+            {data.plot?.plotText?.plainText}
+          </p>
+        </div>
+        {isSeries && data && (
+          <div className={s.series}>
+            {data?.episodes?.seasons?.map((el) => (
+              <Season
+                key={el.number}
+                seriesId={data.id}
+                seasonNumber={el.number}
+              ></Season>
+            ))}
+          </div>
+        )}
+      </div>
+
+      {width > 900 && (
         <div className={s.aside}>
           <div className={s.aside__header}>
-            <div className={s.icons}>
-              <FontAwesomeIcon
-                icon={faHeart}
-                onClick={handlerLike}
-                className={(isLiked && s.liked) || ""}
-              />
-              <FontAwesomeIcon icon={faShareNodes} />
-            </div>
             <div className={s.reviews}>
               <FontAwesomeIcon icon={faStar} className={s.star} />
               <div>
@@ -129,10 +116,26 @@ const FilmPage = () => {
                 <span className={s.count}>{data.ratingsSummary.voteCount}</span>
               </div>
             </div>
+            <div className={s.icons}>
+              <FontAwesomeIcon
+                icon={faHeart}
+                onClick={handlerLike}
+                className={(isLiked && s.liked) || ""}
+              />
+              <FontAwesomeIcon icon={faShareNodes} />
+            </div>
+          </div>
+
+          <div className={s.genres}>
+            {data?.genres?.genres?.map((genreName) => (
+              <div className={s.genre} key={genreName.id}>
+                {genreName.text}
+              </div>
+            ))}
           </div>
         </div>
-      </div>
-    </Wrapper>
+      )}
+    </div>
   );
 };
 

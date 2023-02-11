@@ -43,8 +43,6 @@ const Sort: React.FC<Props> = ({
     genre: genre || undefined,
     titleType: titleType || undefined,
   });
-  // const navigate = useNavigate();
-  // let [searchParams, setSearchParams] = useSearchParams();
 
   const { data: genres } = useGetAllGenresQuery();
   const { data: titleTypes } = useGetAllTitleTypesQuery();

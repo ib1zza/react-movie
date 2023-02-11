@@ -10,9 +10,7 @@ import { RewriteGroupName } from "../../../helpers/helpers";
 
 const MovieGroup = ({ listName }: { listName: string }) => {
   const { data, isFetching } = useGetFilmsFromListQuery({ list: listName });
-
   const containerRef = useRef<HTMLDivElement>(null);
-
   const [pageNumber, setPageNumber] = useState(0);
 
   const nextHandler = () => {

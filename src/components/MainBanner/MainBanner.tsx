@@ -7,7 +7,7 @@ import { useGetFilmByIdQuery } from "../../store/services/filmAPI";
 import { Link } from "react-router-dom";
 import { AppRoutes } from "../../types/AppRoutes";
 const MainBanner = () => {
-  const { data } = useGetFilmByIdQuery("tt9419884");
+  const { data } = useGetFilmByIdQuery("tt1630029");
 
   if (!data) {
     return <div></div>;

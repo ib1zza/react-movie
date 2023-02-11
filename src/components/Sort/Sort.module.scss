@@ -17,11 +17,11 @@ input.inputPrice::-webkit-inner-spin-button {
 }
 
 .container {
-  top: 250px;
-  right: 30px;
-
-  display: flex;
+  width: 550px;
+  max-width: 100%;
+   display: flex;
   padding: 10px 15px;
+  padding-bottom: 20px;
   flex-direction: column;
   border: 1px solid $mainTextColAccent;
   border-radius: 15px;
@@ -33,7 +33,7 @@ input.inputPrice::-webkit-inner-spin-button {
 }
 
 .yearSlider {
-  padding: 10px 15px;
+  padding: 10px 0;
   display: flex;
   align-items: center;
 
@@ -45,6 +45,8 @@ input.inputPrice::-webkit-inner-spin-button {
   input {
     color: $mainTextColAccent;
     align-self: stretch;
+    min-width: 50px;
+
   }
 }
 

@@ -7,6 +7,7 @@ import { RewriteGroupName } from "../../helpers/helpers";
 import { useFilters } from "../../hooks/useFilters";
 import Sort from "../../components/Sort/Sort";
 import PageSwitcher from "../../components/PageSwitcher/PageSwitcher";
+import MovieList from "../../components/MovieList/MovieList";
 
 const MovieByCategoryPage: React.FC = () => {
   const { id: listName } = useParams();
@@ -26,21 +27,22 @@ const MovieByCategoryPage: React.FC = () => {
   return (
     <>
       <h1 className={s.heading}>{RewriteGroupName(listName || "")}</h1>
+      <Sort onChange={onSortChange} {...sortFilters} withGenre />
       <div className={s.films}>
-        {data &&
-          data.map((el) => (
-            <MovieCover
-              rating={el.ratingsSummary.aggregateRating}
-              movieId={el.id}
-              image={el.primaryImage?.url || undefined}
-              key={el.id}
-              title={el.titleText.text}
-              date={el.releaseYear?.year}
-            />
-          ))}
+        {data && <MovieList films={data} />}
+        {/*{data &&*/}
+        {/*  data.map((el) => (*/}
+        {/*    <MovieCover*/}
+        {/*      rating={el.ratingsSummary.aggregateRating}*/}
+        {/*      movieId={el.id}*/}
+        {/*      image={el.primaryImage?.url || undefined}*/}
+        {/*      key={el.id}*/}
+        {/*      title={el.titleText.text}*/}
+        {/*      date={el.releaseYear?.year}*/}
+        {/*    />*/}
+        {/*  ))}*/}
       </div>
       <PageSwitcher page={page} onChange={setPage} />
-      <Sort onChange={onSortChange} {...sortFilters} withGenre />
     </>
   );
 };

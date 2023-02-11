@@ -8,12 +8,11 @@
 }
 
 .series {
-  display: flex;
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
 
-  max-width: 100%;
-  flex-wrap: wrap;
-  &>*:not(:last-child) {
-    margin-right: 20px;
-    margin-bottom: 30px;
-  }
+
+
+
 }

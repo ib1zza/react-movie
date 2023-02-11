@@ -57,10 +57,12 @@ const MovieCover: React.FC<Props> = ({
                   transition: { duration: 0.3 },
                 }}
               >
-                <div>
-                  <FontAwesomeIcon icon={faStar} className={s.starIcon} />
-                  <span>{rating}</span>
-                </div>
+                {rating && (
+                  <div>
+                    <FontAwesomeIcon icon={faStar} className={s.starIcon} />
+                    <span>{rating}</span>
+                  </div>
+                )}
                 <h5>{date}</h5>
               </motion.div>
             )}

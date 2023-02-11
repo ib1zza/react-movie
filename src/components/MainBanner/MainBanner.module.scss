@@ -8,8 +8,9 @@
   max-height: 300px;
 
   .picture {
-    width: 100%;
 
+    width: 100%;
+     object-fit: cover;
   }
 
   .description {
