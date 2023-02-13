@@ -1,43 +1,37 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import {
-  // useAddToFavouritesMutation,
-  // useGetFavouritesFilmsQuery,
   useGetFilmByIdQuery,
-  // useRemoveFromFavouritesMutation,
 } from "../../store/services/filmAPI";
 import s from "./FilmPage.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import { faShareNodes, faStar } from "@fortawesome/free-solid-svg-icons";
-import Wrapper from "../../UI/Wrapper/Wrapper";
-import { IBaseFilm, IMiniFilm, ISeries } from "../../types/IFilm";
+ import { IBaseFilm,   ISeries } from "../../types/IFilm";
 import Season from "../../components/Season/Season";
-import {
-  useAddToFavouritesMutation,
-  useGetFavouritesFilmsQuery,
-  useRemoveFromFavouritesMutation,
-} from "../../store/services/favouritesAPI";
+
 import useWindowDimensions from "../../hooks/useWindowDimensions";
+import {useAppDispatch, useAppSelector} from "../../store/hooks";
+import {toggleLike} from "../../store/slices/likesSlice";
 const notFoundPoster =
   "https://static.displate.com/857x1200/displate/2022-04-15/7422bfe15b3ea7b5933dffd896e9c7f9_46003a1b7353dc7b5a02949bd074432a.jpg";
 
 const FilmPage = () => {
+  const likes = useAppSelector(state => state.likesSlice.likesList);
   const { id } = useParams();
-  const { data: liked } = useGetFavouritesFilmsQuery();
+  const dispatch = useAppDispatch();
   const [isLiked, setIsLiked] = useState(false);
   const [data, setData] = useState<IBaseFilm | ISeries>();
   const [isSeries, setIsSeries] = useState(false);
-  const [addToFav] = useAddToFavouritesMutation();
-  const [removeFromFav] = useRemoveFromFavouritesMutation();
-  // @ts-ignore
-  const { currentData, isLoading } = useGetFilmByIdQuery(id as number);
+  const { currentData, isLoading } = useGetFilmByIdQuery(id as string);
   const { width } = useWindowDimensions();
   useEffect(() => {
-    const ids = (liked && liked.map((el) => el.id)) || 0;
-    console.log(ids);
-    setIsLiked(!!(ids && ids.includes(id || "")));
-  }, [id, liked]);
+     if(likes.includes(id as string)){
+        setIsLiked(true);
+     }else {
+       setIsLiked(false);
+     }
+  }, [id, likes]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -64,7 +58,8 @@ const FilmPage = () => {
   }
 
   const handlerLike = () => {
-    isLiked && id ? removeFromFav(id) : addToFav(id || "");
+    dispatch(toggleLike(id as string));
+    console.log("like on page")
   };
 
   return (
@@ -108,7 +103,7 @@ const FilmPage = () => {
         <div className={s.aside}>
           <div className={s.aside__header}>
             <div className={s.reviews}>
-              <FontAwesomeIcon icon={faStar} className={s.star} />
+              <FontAwesomeIcon icon={faStar} className={s.star } />
               <div>
                 <span className={s.rate}>
                   {data.ratingsSummary.aggregateRating}

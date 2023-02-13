@@ -1,10 +1,11 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { filmAPI } from "./services/filmAPI";
 import { favouritesApi } from "./services/favouritesAPI";
-// ...
+import likesSlice from "./slices/likesSlice";
 const RootReducer = combineReducers({
   [filmAPI.reducerPath]: filmAPI.reducer,
   [favouritesApi.reducerPath]: favouritesApi.reducer,
+  likesSlice,
 });
 export const store = configureStore({
   reducer: RootReducer,
