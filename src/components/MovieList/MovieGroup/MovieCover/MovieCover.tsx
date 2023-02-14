@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 import { AppRoutes } from "../../../../types/AppRoutes";
 import { AnimatePresence, motion } from "framer-motion";
+
 interface Props {
   image?: string;
   rating: number;

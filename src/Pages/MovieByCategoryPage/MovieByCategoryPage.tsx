@@ -28,20 +28,7 @@ const MovieByCategoryPage: React.FC = () => {
     <>
       <h1 className={s.heading}>{RewriteGroupName(listName || "")}</h1>
       <Sort onChange={onSortChange} {...sortFilters} withGenre />
-      <div className={s.films}>
-        {data && <MovieList films={data} />}
-        {/*{data &&*/}
-        {/*  data.map((el) => (*/}
-        {/*    <MovieCover*/}
-        {/*      rating={el.ratingsSummary.aggregateRating}*/}
-        {/*      movieId={el.id}*/}
-        {/*      image={el.primaryImage?.url || undefined}*/}
-        {/*      key={el.id}*/}
-        {/*      title={el.titleText.text}*/}
-        {/*      date={el.releaseYear?.year}*/}
-        {/*    />*/}
-        {/*  ))}*/}
-      </div>
+      <div className={s.films}>{data && <MovieList films={data} />}</div>
       <PageSwitcher page={page} onChange={setPage} />
     </>
   );

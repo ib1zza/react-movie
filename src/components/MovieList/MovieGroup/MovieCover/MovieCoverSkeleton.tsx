@@ -4,9 +4,6 @@ import s from "./MovieCover.module.scss";
 const MovieCoverSkeleton = (props: any) => (
   <ContentLoader
     speed={2}
-    width={200}
-    height={315}
-    viewBox="0 0 200 315"
     backgroundColor="#e8e8e8"
     foregroundColor="#bababa"
     {...props}

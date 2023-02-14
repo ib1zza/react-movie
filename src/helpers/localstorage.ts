@@ -1,7 +1,5 @@
 const localStoragePrefix = "react-movie/"
 
-
-
 export enum LocalStorageKey {
     likes= "likes",
 }
