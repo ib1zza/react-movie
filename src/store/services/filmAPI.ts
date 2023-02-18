@@ -14,6 +14,8 @@ interface IResponse<T> {
   [x: string]: any;
 }
 
+// @ts-ignore
+// @ts-ignore
 export const filmAPI = createApi({
   reducerPath: "filmAPI",
   tagTypes,
@@ -72,9 +74,9 @@ export const filmAPI = createApi({
     //arg - list name
     getFilmsFromList: builder.query<
       IBaseFilm[],
-      { list?: string; filters?: ISortFilters }
+      { list?: string; filters?: ISortFilters; limit?: number }
     >({
-      query: ({ list, filters }) => ({
+      query: ({ list, filters, limit }) => ({
         url: `/titles`,
         headers: headers,
 
@@ -82,7 +84,7 @@ export const filmAPI = createApi({
           list: list || "titles",
           info: "base_info",
           sort: "year.decr",
-          limit: 30,
+          limit: limit || 10,
           genre: filters?.genre,
           ...filters,
         },
@@ -147,6 +149,7 @@ export const filmAPI = createApi({
           ...props.sort,
         },
       }),
+      // @ts-ignore
       transformResponse: (response: IResponse<IBaseFilm[]>) => {
         return response.results;
       },

@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 import s from "./PageSwitcher.module.scss";
-import { Link } from "react-router-dom";
-import { type } from "os";
 
 interface Props {
   page: number;

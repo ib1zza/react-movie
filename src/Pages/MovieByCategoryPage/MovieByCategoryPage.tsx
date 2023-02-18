@@ -20,6 +20,7 @@ const MovieByCategoryPage: React.FC = () => {
     limit: 18,
     page: page,
   });
+  console.log(data);
 
   useEffect(() => {
     window.scrollTo(0, 0);

@@ -7,24 +7,28 @@ import { AppRoutes } from "../../../types/AppRoutes";
 import MovieCoverSkeleton from "./MovieCover/MovieCoverSkeleton";
 import MovieCoverSeeMore from "./MovieCover/MovieCoverSeeMore";
 import { RewriteGroupName } from "../../../helpers/helpers";
+import useWindowDimensions from "../../../hooks/useWindowDimensions";
 
 const MovieGroup = ({ listName }: { listName: string }) => {
   const { data, isFetching } = useGetFilmsFromListQuery({ list: listName });
   const containerRef = useRef<HTMLDivElement>(null);
   const [pageNumber, setPageNumber] = useState(0);
-
+  const { width } = useWindowDimensions();
   const nextHandler = () => {
-    setPageNumber((prev) => prev + 1);
+    setPageNumber((prev) => (prev < (width > 500 ? 5 : 10) ? prev + 1 : prev));
   };
   const prevHandler = () => {
+    console.log(width);
     setPageNumber((prev) => (prev <= 1 ? 0 : prev - 1));
   };
 
   useEffect(() => {
     if (containerRef.current) {
+      const size = width > 500 ? 480 : 240;
+
       containerRef.current.childNodes.forEach(
         // @ts-ignore
-        (el) => (el.style = `transform: translateX(${pageNumber * -300}px)`)
+        (el) => (el.style = `transform: translateX(${pageNumber * -size}px)`)
       );
     }
   }, [pageNumber]);

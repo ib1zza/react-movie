@@ -79,8 +79,7 @@
     }
   }
 
-  .aside {
-
+  .aside,.moreInfo {
     display: flex;
     flex-direction: column;
     &__header {
@@ -144,6 +143,18 @@
         .reviews {
           justify-content: space-between;
         }
+      }
+    }
+  }
+
+  .moreInfo {
+
+    &__header {
+      flex-direction: row;
+      justify-content: space-between;
+
+      &>* {
+        margin-bottom: 0;
       }
     }
   }

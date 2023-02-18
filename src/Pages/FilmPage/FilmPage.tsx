@@ -1,23 +1,21 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
-import {
-  useGetFilmByIdQuery,
-} from "../../store/services/filmAPI";
+import { useGetFilmByIdQuery } from "../../store/services/filmAPI";
 import s from "./FilmPage.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import { faShareNodes, faStar } from "@fortawesome/free-solid-svg-icons";
- import { IBaseFilm,   ISeries } from "../../types/IFilm";
+import { IBaseFilm, ISeries } from "../../types/IFilm";
 import Season from "../../components/Season/Season";
 
 import useWindowDimensions from "../../hooks/useWindowDimensions";
-import {useAppDispatch, useAppSelector} from "../../store/hooks";
-import {toggleLike} from "../../store/slices/likesSlice";
+import { useAppDispatch, useAppSelector } from "../../store/hooks";
+import { toggleLike } from "../../store/slices/likesSlice";
 const notFoundPoster =
   "https://static.displate.com/857x1200/displate/2022-04-15/7422bfe15b3ea7b5933dffd896e9c7f9_46003a1b7353dc7b5a02949bd074432a.jpg";
 
 const FilmPage = () => {
-  const likes = useAppSelector(state => state.likesSlice.likesList);
+  const likes = useAppSelector((state) => state.likesSlice.likesList);
   const { id } = useParams();
   const dispatch = useAppDispatch();
   const [isLiked, setIsLiked] = useState(false);
@@ -26,11 +24,11 @@ const FilmPage = () => {
   const { currentData, isLoading } = useGetFilmByIdQuery(id as string);
   const { width } = useWindowDimensions();
   useEffect(() => {
-     if(likes.includes(id as string)){
-        setIsLiked(true);
-     }else {
-       setIsLiked(false);
-     }
+    if (likes.includes(id as string)) {
+      setIsLiked(true);
+    } else {
+      setIsLiked(false);
+    }
   }, [id, likes]);
 
   useEffect(() => {
@@ -59,7 +57,7 @@ const FilmPage = () => {
 
   const handlerLike = () => {
     dispatch(toggleLike(id as string));
-    console.log("like on page")
+    console.log("like on page");
   };
 
   return (
@@ -70,10 +68,48 @@ const FilmPage = () => {
             {[
               data.titleText.text,
               data?.releaseYear?.year,
-              data.runtime && data.runtime.seconds / 60 + "m",
-            ].join(" • ")}
+              data?.runtime?.seconds && data.runtime.seconds / 60 + "m",
+            ]
+              .filter((el) => el !== undefined)
+              .join(" • ")}
           </h2>
         </div>
+
+        {width < 900 && (
+          <div className={s.description__moreInfo}>
+            <div className={s.moreInfo__header}>
+              {data.ratingsSummary.aggregateRating && (
+                <div className={s.reviews}>
+                  <FontAwesomeIcon icon={faStar} className={s.star} />
+                  <div>
+                    <span className={s.rate}>
+                      {data.ratingsSummary.aggregateRating}
+                    </span>
+                    <span className={s.count}>
+                      {data.ratingsSummary.voteCount}
+                    </span>
+                  </div>
+                </div>
+              )}
+              <div className={s.icons}>
+                <FontAwesomeIcon
+                  icon={faHeart}
+                  onClick={handlerLike}
+                  className={(isLiked && s.liked) || ""}
+                />
+                <FontAwesomeIcon icon={faShareNodes} />
+              </div>
+            </div>
+
+            <div className={s.genres}>
+              {data?.genres?.genres?.map((genreName) => (
+                <div className={s.genre} key={genreName.id}>
+                  {genreName.text}
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
 
         <div className={s.description__main}>
           <img
@@ -93,7 +129,7 @@ const FilmPage = () => {
                 key={el.number}
                 seriesId={data.id}
                 seasonNumber={el.number}
-              ></Season>
+              />
             ))}
           </div>
         )}
@@ -102,15 +138,19 @@ const FilmPage = () => {
       {width > 900 && (
         <div className={s.aside}>
           <div className={s.aside__header}>
-            <div className={s.reviews}>
-              <FontAwesomeIcon icon={faStar} className={s.star } />
-              <div>
-                <span className={s.rate}>
-                  {data.ratingsSummary.aggregateRating}
-                </span>
-                <span className={s.count}>{data.ratingsSummary.voteCount}</span>
+            {data.ratingsSummary.aggregateRating && (
+              <div className={s.reviews}>
+                <FontAwesomeIcon icon={faStar} className={s.star} />
+                <div>
+                  <span className={s.rate}>
+                    {data.ratingsSummary.aggregateRating}
+                  </span>
+                  <span className={s.count}>
+                    {data.ratingsSummary.voteCount}
+                  </span>
+                </div>
               </div>
-            </div>
+            )}
             <div className={s.icons}>
               <FontAwesomeIcon
                 icon={faHeart}

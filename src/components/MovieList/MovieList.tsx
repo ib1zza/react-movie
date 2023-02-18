@@ -16,7 +16,7 @@ const MovieList: React.FC<Props> = ({ films }) => {
             movieId={film.id}
             title={film.titleText.text}
             image={film.primaryImage?.url}
-            date={film.releaseYear.year}
+            date={film.releaseYear?.year}
             key={film.id}
           />
         ))}

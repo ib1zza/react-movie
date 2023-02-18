@@ -11,11 +11,13 @@ $fontSize: 20px;
   justify-content: center;
 }
 .buttons {
+
   font-size: $fontSize;
   display: flex;
   justify-content: space-between;
   width: calc($buttonSize * 6 + 30px);
   &>button {
+    cursor: pointer;
     width: $buttonSize;
     height: $buttonSize;
     border-radius: 50%;
@@ -23,6 +25,11 @@ $fontSize: 20px;
     color: $mainTextColAccent;
     &.active {
       background-color: $mainTextColAccent;
+      color: $mainTextColLight;
+    }
+    &:hover {
+      background-color: $mainTextColAccent;
+
       color: $mainTextColLight;
     }
   }
