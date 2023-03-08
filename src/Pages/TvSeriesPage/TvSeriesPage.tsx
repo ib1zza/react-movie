@@ -1,41 +1,41 @@
-import React, { useState } from "react";
+import React, {useEffect, useState} from "react";
 import {
   useGetFilmsFromListQuery,
-  useGetSearchedFilmsQuery,
 } from "../../store/services/filmAPI";
 import s from "./TvSeriesPage.module.scss";
 import MovieList from "../../components/MovieList/MovieList";
 import { useFilters } from "../../hooks/useFilters";
 import Sort from "../../components/Sort/Sort";
+import {IBaseFilm} from "../../types/IFilm";
+import {useLazyLoading} from "../../hooks/useLazyLoading";
 const TvSeriesPage = () => {
   const { sortFilters, onSortChange } = useFilters();
-  // const [searchQuery, setSearchQuery] = useState<string>("");
-  const { currentData: data } = useGetFilmsFromListQuery({
+    const {pageCount, ref} = useLazyLoading()
+    const [displayData, setDisplayData] = useState<IBaseFilm[]>([]);
+  const { currentData } = useGetFilmsFromListQuery({
     list: "most_pop_series",
     filters: sortFilters,
+      page: pageCount,
+      limit: 15
   });
-  //
-  // const { currentData } = useGetSearchedFilmsQuery({
-  //   searchQuery: searchQuery ? searchQuery : query || "",
-  //   sort: sortFilters,
-  // });
+
+
+    useEffect( () => {
+        if(!Array.isArray(currentData)) return;
+        setDisplayData(prevState => [...prevState, ...currentData as IBaseFilm[]])
+    }, [currentData])
+
 
   return (
     <div>
       <h1 className={s.heading}>Tv Series</h1>
       <Sort onChange={onSortChange} {...sortFilters} withGenre />
-      <MovieList films={data} />
-      {/*{data &&*/}
-      {/*  data.map((el) => (*/}
-      {/*    <MovieCover*/}
-      {/*      rating={el.ratingsSummary.aggregateRating}*/}
-      {/*      movieId={el.id}*/}
-      {/*      title={el.titleText.text}*/}
-      {/*      key={el.id}*/}
-      {/*      image={el?.primaryImage?.url}*/}
-      {/*      date={el.releaseYear.year}*/}
-      {/*    />*/}
-      {/*  ))}*/}
+
+        <div className={s.results}>
+            <MovieList films={displayData} />
+        </div>
+        <div  ref={ref}/>
+
     </div>
   );
 };

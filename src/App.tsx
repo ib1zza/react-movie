@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import "./App.scss";
 import { Route, Routes } from "react-router";
 import { AppRoutes } from "./types/AppRoutes";
@@ -14,9 +14,25 @@ import FilmsByGenrePage from "./Pages/FilmsByGenrePage/FilmsByGenrePage";
 import ListPage from "./Pages/ListPage/ListPage";
 import TvSeriesPage from "./Pages/TvSeriesPage/TvSeriesPage";
 import SearchedFilmsPage from "./Pages/SearchedFilmsPage/SearchedFilmsPage";
+import {useLocation} from "react-router-dom";
 
 function App() {
+  const {pathname} = useLocation();
+
+  useEffect(() => {
+        const goToTop = () => {
+          document.documentElement.scrollTo({
+            top: 0,
+            behavior: "smooth"
+          });
+        };
+        goToTop();
+  },
+  [pathname]);
+
+
   return (
+
     <div className="App">
       <Routes>
         <Route path="/" element={<Layout />}>

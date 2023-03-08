@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { IBaseFilm, IFavouriteFilm, IFilm, IMiniFilm } from "../../types/IFilm";
+import { IBaseFilm } from "../../types/IFilm";
 import { ISortFilters } from "../../components/Sort/Sort";
-// const baseQ = "http://localhost:3001/";
+
 const baseQ = "https://moviesdatabase.p.rapidapi.com";
 const tagTypes = ["Films", "Favourites"];
 const headers = {
@@ -14,8 +14,7 @@ interface IResponse<T> {
   [x: string]: any;
 }
 
-// @ts-ignore
-// @ts-ignore
+
 export const filmAPI = createApi({
   reducerPath: "filmAPI",
   tagTypes,
@@ -74,9 +73,9 @@ export const filmAPI = createApi({
     //arg - list name
     getFilmsFromList: builder.query<
       IBaseFilm[],
-      { list?: string; filters?: ISortFilters; limit?: number }
+      { list?: string; filters?: ISortFilters; limit?: number, page?: number }
     >({
-      query: ({ list, filters, limit }) => ({
+      query: ({ list, filters, limit,page }) => ({
         url: `/titles`,
         headers: headers,
 
@@ -85,6 +84,7 @@ export const filmAPI = createApi({
           info: "base_info",
           sort: "year.decr",
           limit: limit || 10,
+          page: page || 1,
           genre: filters?.genre,
           ...filters,
         },
@@ -96,12 +96,12 @@ export const filmAPI = createApi({
     //param - genre string
     getFilmsByGenre: builder.query<
       IBaseFilm[],
-      { list: string; sort: ISortFilters | void }
+      { list: string; sort: ISortFilters | void, limit?: number,page?: number }
     >({
       query: (props) => ({
-        url: `/titles${"?limit=" + 20}`,
+        url: `/titles${"?limit=" + props.limit || 20}`,
         headers: headers,
-        params: { genre: props.list, info: "base_info", ...props.sort },
+        params: { genre: props.list, info: "base_info", ...props.sort, page: props.page || 1 },
       }),
       transformResponse: (response: IResponse<IBaseFilm[]>) => {
         return response.results;
@@ -149,7 +149,7 @@ export const filmAPI = createApi({
           ...props.sort,
         },
       }),
-      // @ts-ignore
+
       transformResponse: (response: IResponse<IBaseFilm[]>) => {
         return response.results;
       },
