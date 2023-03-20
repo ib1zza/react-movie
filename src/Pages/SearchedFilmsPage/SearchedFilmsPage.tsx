@@ -6,7 +6,6 @@ import SearchBar from "../../components/HeaderNavigation/SearchBar/SearchBar";
 import MovieList from "../../components/MovieList/MovieList";
 import Sort from "../../components/Sort/Sort";
 import { useFilters } from "../../hooks/useFilters";
-import {useInView} from "framer-motion";
 import {IBaseFilm} from "../../types/IFilm";
 import {useLazyLoading} from "../../hooks/useLazyLoading";
 
@@ -15,23 +14,26 @@ const SearchedFilmsPage = () => {
 
   const [searchQuery, setSearchQuery] = useState<string>(query || "");
   const { sortFilters, onSortChange } = useFilters({ sort: "year.decr" });
-
-    const {pageCount, ref} = useLazyLoading()
+  const {pageCount, ref} = useLazyLoading();
 
   const [displayData, setDisplayData] = useState<IBaseFilm[]>([]);
   const { currentData } = useGetSearchedFilmsQuery({
-    searchQuery: searchQuery,
-    sort: sortFilters,
-      limit: 15 ,
+      searchQuery: searchQuery,
+      sort: sortFilters,
+      limit: 15,
       page: pageCount
   });
 
-
+    useEffect( () => {
+        setDisplayData([]);
+    }, [sortFilters.genre, sortFilters.titleType, sortFilters.sort])
 
     useEffect( () => {
         if(!Array.isArray(currentData)) return;
         setDisplayData(prevState => [...prevState, ...currentData as IBaseFilm[]])
-    }, [currentData])
+    }, [currentData]);
+
+
 
 
 
@@ -42,7 +44,9 @@ const SearchedFilmsPage = () => {
         value={searchQuery}
         onChange={(query: string) => setSearchQuery(query)}
       />
-      <Sort {...sortFilters} onChange={onSortChange} withGenre withTitleTypes />
+      <Sort {...sortFilters} onChange={(newFilters) => {
+          onSortChange(newFilters);
+      }} withGenre withTitleTypes />
       <div className={s.results}>
         <MovieList films={displayData} />
       </div>

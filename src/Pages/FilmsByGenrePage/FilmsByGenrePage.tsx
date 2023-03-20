@@ -11,11 +11,11 @@ import {useLazyLoading} from "../../hooks/useLazyLoading";
 
 const FilmsByGenrePage = () => {
     const {genre} = useParams();
-    const [sortParams, setSortParams] = useState<ISortFilters>();
-    const {pageCount, ref} = useLazyLoading()
+    const [sortParams, setSortParams] = useState<ISortFilters>({genre});
+    const {pageCount, ref} = useLazyLoading();
     const [displayData, setDisplayData] = useState<IBaseFilm[]>([]);
     const {currentData} = useGetFilmsByGenreQuery({
-        list: genre || "",
+        list: sortParams.genre || "",
         sort: sortParams,
         limit: 20,
         page: pageCount
@@ -25,6 +25,10 @@ const FilmsByGenrePage = () => {
         if(!Array.isArray(currentData)) return;
         setDisplayData(prevState => [...prevState, ...currentData as IBaseFilm[]])
     }, [currentData])
+
+    useEffect( () => {
+        setDisplayData([]);
+    }, [genre])
 
 
     return (

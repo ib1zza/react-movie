@@ -29,8 +29,9 @@ const MovieCover: React.FC<Props> = ({
       className={s.container}
       onHoverStart={() => setIsHover(true)}
       onHoverEnd={() => setIsHover(false)}
+
     >
-      <Link to={AppRoutes.FILM + "/" + movieId}>
+      <Link to={AppRoutes.FILM + "/" + movieId} target={"_blank"}>
         {rating && (
           <div className={s.rating}>
             <FontAwesomeIcon icon={faStar} className={s.starIcon} />
