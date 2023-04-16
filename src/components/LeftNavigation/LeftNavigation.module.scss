@@ -17,7 +17,12 @@
 .container {
   display: flex;
   flex-direction: column;
-
+  .logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom:  30px;
+  }
   .item {
     padding: 20px;
     display: flex;

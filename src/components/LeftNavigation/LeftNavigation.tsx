@@ -10,13 +10,16 @@ import {
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import { NavLink } from "react-router-dom";
 import { AppRoutes } from "../../types/AppRoutes";
-
+import logo from "../../assets/logo.png";
 const LeftNavigation = () => {
   const setStyles = (isActive: boolean) =>
     isActive ? s.item + " " + s.selected : s.item;
   return (
     <div className={s.navigation}>
       <div className={s.container}>
+        <NavLink to={AppRoutes.HOME} className={s.logo}>
+          <img src={logo} alt="logo" />
+        </NavLink>
         <NavLink
           to={AppRoutes.HOME}
           className={({ isActive }) => setStyles(isActive)}

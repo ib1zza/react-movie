@@ -4,10 +4,11 @@ import s from "./Burger.module.scss";
 import MenuToggle from "./MenuToggle/MenuToggle";
 import { Navigation } from "./Navigation/Navigation";
 
-import { NavLink, useLocation } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { AppRoutes } from "../../types/AppRoutes";
 
 import { useModalContext } from "../../context/ModalContext";
+import logo from "../../assets/logo.png";
 
 const NavLinkVariants = {
   visible: (custom: number) => ({
@@ -90,6 +91,18 @@ const Burger: React.FC = () => {
           {isOpened && (
             <>
               <Navigation>
+                <motion.div
+                  className={s.header__burger__logo}
+                  variants={NavLinkVariants}
+                  initial={"hidden"}
+                  animate={"visible"}
+                  exit={"hidden"}
+                  transition={{ duration: 0.3 }}
+                >
+                  <Link to={AppRoutes.HOME}>
+                    <img src={logo} alt="" />
+                  </Link>
+                </motion.div>
                 {links.map((link, i) => (
                   <motion.div
                     key={link.name}
