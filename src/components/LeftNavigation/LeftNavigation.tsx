@@ -8,9 +8,9 @@ import {
   faTv,
 } from "@fortawesome/free-solid-svg-icons";
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
-import { NavLink } from "react-router-dom";
 import { AppRoutes } from "../../types/AppRoutes";
 import logo from "../../assets/logo.png";
+import { NavLink } from "react-router-dom";
 const LeftNavigation = () => {
   const setStyles = (isActive: boolean) =>
     isActive ? s.item + " " + s.selected : s.item;
