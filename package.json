@@ -15,6 +15,7 @@
     "@types/node": "^16.18.10",
     "@types/react": "^18.0.26",
     "@types/react-dom": "^18.0.9",
+    "axios": "^1.8.1",
     "framer-motion": "^8.0.2",
     "json-server": "^0.17.1",
     "nouislider": "^15.6.1",
